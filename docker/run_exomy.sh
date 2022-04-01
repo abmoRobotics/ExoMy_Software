@@ -69,6 +69,7 @@ docker run \
     -p 8000:8000 \
     -p 8080:8080 \
     -p 9090:9090 \
+    --gpus all \
     --privileged \
     ${options} \
     --name "${container_name}" \

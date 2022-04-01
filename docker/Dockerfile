@@ -1,5 +1,5 @@
 # Base image
-FROM ros:foxy
+FROM dustynv/ros:foxy-pytorch-l4t-r32.7.1
 
 ENV TZ=Europe/Amsterdam
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -11,12 +11,14 @@ RUN apt-get update && \
 # OH-MY-ZSH Installation
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" &&\
     sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="agnoster"/' ~/.zshrc &&\
-    echo "source /opt/ros/foxy/setup.zsh" >> ~/.zshrc 
+    echo "source /opt/ros/foxy/install/setup.zsh" >> ~/.zshrc 
 
 # Install additional ros packages
-RUN sudo apt-get update && \
-    sudo apt-get install ros-foxy-joy -y
-RUN pip3 install adafruit-pca9685
+RUN sudo apt-get update 
+    #sudo apt-get install ros-foxy-joy -y
+RUN pip3 install Adafruit-PlatformDetect==3.19.6 && \
+    pip3 install adafruit-circuitpython-pca9685 && \
+    pip3 install Jetson.GPIO
 
 
 # Install packages for web application
@@ -34,7 +36,7 @@ RUN mkdir -p $EXOMY_WS/src
 WORKDIR /root
 
 
-RUN echo ". /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc
+RUN echo ". /opt/ros/$ROS_DISTRO/install/setup.bash" >> ~/.bashrc
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

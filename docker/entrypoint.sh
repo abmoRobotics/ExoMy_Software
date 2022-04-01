@@ -9,7 +9,7 @@ elif [[ $1 == "autostart" ]]
 then
 	cd "/root/exomy_ws"
 
-	source "/opt/ros/foxy/setup.bash"
+	source "/opt/ros/foxy/install/setup.bash"
 	colcon build
 	source "/root/exomy_ws/install/setup.bash"
 	
@@ -27,7 +27,7 @@ then
 elif [[ $1 == "devel" ]]
 then
 	cd "/root/exomy_ws"
-	source "/opt/ros/foxy/setup.bash"
+	source "/opt/ros/foxy/install/setup.bash"
 	
 	bash
 else
