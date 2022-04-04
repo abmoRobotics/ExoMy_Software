@@ -20,9 +20,7 @@ RUN pip3 install Adafruit-PlatformDetect==3.19.6 && \
     pip3 install adafruit-circuitpython-pca9685 && \
     pip3 install Jetson.GPIO
 RUN git clone https://github.com/Toni-SM/skrl.git
-RUN cd skrl
-RUN pip3 install -e .
-RUN cd ..
+RUN pip3 install -e skrl/.
 
 
 # Install packages for web application
@@ -37,6 +35,7 @@ RUN npm install http-server -g
 # Create Ros workspace
 ENV EXOMY_WS=/home/exomy/exomy_ws
 RUN mkdir -p $EXOMY_WS/src
+RUN git clone -b ros2/foxy-pytorch https://github.com/abmoRobotics/ExoMy_Software.git $EXOMY_WS/src
 WORKDIR /root
 
 
