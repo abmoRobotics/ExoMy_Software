@@ -21,7 +21,7 @@ RUN pip3 install Adafruit-PlatformDetect==3.19.6 && \
     pip3 install Jetson.GPIO
 RUN git clone https://github.com/Toni-SM/skrl.git
 RUN cd skrl
-RUN pip install -e .
+RUN pip3 install -e .
 RUN cd ..
 
 

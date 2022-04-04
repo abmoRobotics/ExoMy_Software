@@ -12,8 +12,8 @@ help_text="Usage: "$0" [MODE] [OPTIONS]
 
 ### Main
 # Initialize parameters 
-container_name="exomy"
-image_name="exomy"
+container_name="exomy_jacob"
+image_name="exomy_jacob"
 
 # Process parameters
 if [ "$1" != "" ]; then
@@ -52,23 +52,19 @@ else
 fi
 
 # Build docker image from Dockerfile in directory 
-directory=$( dirname "$0" )
+directory=$( dirname "$0")
 docker build -t $image_name $directory
 
 # Stop any of the 3 containers if running
-RUNNING_CONTAINERS=$( docker container ls -a -q --filter ancestor=exomy )
-if [ -n "$RUNNING_CONTAINERS" ]; then
-    docker rm -f "$RUNNING_CONTAINERS"
-fi
-
+# RUNNING_CONTAINERS=$( docker container ls -a -q --filter ancestor=exomy )
+# if [ -n "$RUNNING_CONTAINERS" ]; then
+#     docker rm -f "$RUNNING_CONTAINERS"
+# fi
+    # -v ~/ExoMy_Software/exomy:/root/exomy_ws/src/exomy \
+    # -v ~/ExoMy_Software/exomy_msgs:/root/exomy_ws/src/exomy_msgs \
 # Run docker container
 docker run \
     -it \
-    -v ~/ExoMy_Software/exomy:/root/exomy_ws/src/exomy \
-    -v ~/ExoMy_Software/exomy_msgs:/root/exomy_ws/src/exomy_msgs \
-    -p 8000:8000 \
-    -p 8080:8080 \
-    -p 9090:9090 \
     --gpus all \
     --privileged \
     ${options} \

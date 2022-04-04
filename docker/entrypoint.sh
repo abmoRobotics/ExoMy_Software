@@ -26,7 +26,7 @@ then
 	bash
 elif [[ $1 == "devel" ]]
 then
-	cd "/root/exomy_ws"
+	#cd "/root/exomy_ws"
 	source "/opt/ros/foxy/install/setup.bash"
 	
 	bash
