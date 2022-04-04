@@ -19,6 +19,10 @@ RUN sudo apt-get update
 RUN pip3 install Adafruit-PlatformDetect==3.19.6 && \
     pip3 install adafruit-circuitpython-pca9685 && \
     pip3 install Jetson.GPIO
+RUN git clone https://github.com/Toni-SM/skrl.git
+RUN cd skrl
+RUN pip install -e .
+RUN cd ..
 
 
 # Install packages for web application
