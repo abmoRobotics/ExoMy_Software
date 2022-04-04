@@ -4,6 +4,12 @@ from setuptools import setup
 
 package_name = 'exomy'
 
+INSTALL_REQUIRES = [
+    # RL
+    "gym",
+    "omegaconf",
+]
+
 setup(
     name=package_name,
     version='2.0.0',

@@ -1,4 +1,9 @@
-import Adafruit_PCA9685
+from board import SCL, SDA
+import busio
+
+# Import the PCA9685 module.
+from adafruit_pca9685 import PCA9685
+from adafruit_motor import servo
 import time
 from shutil import copyfile
 import os
@@ -17,25 +22,25 @@ pos_names = {
 pin_dict = {
 
 }
-
-pwm = Adafruit_PCA9685.PCA9685()
+i2c_bus = busio.I2C(SCL, SDA)
+pwm = PCA9685(i2c_bus)
 # For most motors a pwm frequency of 50Hz is normal
 pwm_frequency = 50.0  # Hz
-pwm.set_pwm_freq(pwm_frequency)
+pwm.frequency = pwm_frequency
 # The cycle is the inverted frequency converted to milliseconds
 cycle = 1.0/pwm_frequency * 1000.0  # ms
 
 # The time the pwm signal is set to on during the duty cycle
-on_time_1 = 2.4  # ms
-on_time_2 = 1.5  # ms
+on_time_1 = 2.25  # ms
+on_time_2 = 0.75  # ms
 
 # Duty cycle is the percentage of a cycle the signal is on
 duty_cycle_1 = on_time_1/cycle
 duty_cycle_2 = on_time_2/cycle
 
 # The PCA 9685 board requests a 12 bit number for the duty_cycle
-value_1 = 200 #int(duty_cycle_1*4096.0)
-value_2 = 400#int(duty_cycle_2*4096.0)
+value_1 = int(duty_cycle_1*65536.0)
+value_2 = int(duty_cycle_2*65536.0)
 
 class Motor():
     def __init__(self, pin):
@@ -44,25 +49,30 @@ class Motor():
         self.pin_number = pin
 
     def wiggle_motor(self):
-
         # Set the motor to the second value
-        pwm.set_pwm(self.pin_number, 0, value_2)
+        print(self.pin_number)
+        print(value_1)
+        print(value_2)
+        #servoToRun.angle = value_2
+        pwm.channels[self.pin_number].duty_cycle = value_2
         # Wait for 1 seconds
         time.sleep(1.0)
         # Set the motor to the first value
-        pwm.set_pwm(self.pin_number, 0, value_1)
+        #servoToRun.angle = value_1
+        pwm.channels[self.pin_number].duty_cycle = value_1
         # Wait for 1 seconds
         time.sleep(1.0)
         # Set the motor to neutral
-        pwm.set_pwm(self.pin_number, 0, 307)
+        #servoToRun.angle = 0
+        pwm.channels[self.pin_number].duty_cycle = 4096
         # Wait for half seconds
         time.sleep(0.5)
         # Stop the motor
-        pwm.set_pwm(self.pin_number, 0, 0)
+        pwm.channels[self.pin_number].duty_cycle = 0
 
     def stop_motor(self):
         # Turn the motor off
-        pwm.set_pwm(self.pin_number, 0, 0)
+        pwm.channels[self.pin_number].duty_cycle = 0
 
 
 def print_exomy_layout():
@@ -217,4 +227,5 @@ All other controls will be explained in the process.
     \__|      \__|\__|  \__|\__|\_______/ \__|  \__| \_______| \_______|
                                                                         
     ''')
+    pwm.deinit()
 

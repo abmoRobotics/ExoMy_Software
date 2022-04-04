@@ -1,15 +1,16 @@
-import Adafruit_PCA9685
 import yaml
 import time
 import os
-
+from adafruit_pca9685 import PCA9685
+from board import SCL, SDA
+import busio
 config_filename = '../config/exomy.yaml'
 
 
 def get_driving_pins():
     pin_list = []
     with open(config_filename, 'r') as file:
-        param_dict = yaml.load(file, yaml.FullLoader)
+        param_dict = yaml.safe_load(file)
 
     for key, value in param_dict.items():
         if('pin_drive_' in str(key)):
@@ -19,7 +20,7 @@ def get_driving_pins():
 def get_drive_pwm_neutral():
      
     with open(config_filename, 'r') as file:
-        param_dict = yaml.load(file, yaml.FullLoader)
+        param_dict = yaml.safe_load(file)
 
     for key, value in param_dict.items():
         if('drive_pwm_neutral' in str(key)):
@@ -58,8 +59,11 @@ On each motor you have to turn the correction screw until the motor really stand
         print("exomy.yaml does not exist. Finish config_motor_pins.py to generate it.")
         exit()
 
-
-    pwm = Adafruit_PCA9685.PCA9685()
+    i2c_bus = busio.I2C(SCL, SDA)
+    pwm = PCA9685(i2c_bus)
+    # For most motors a pwm frequency of 50Hz is normal
+    pwm_frequency = 50.0  # Hz
+    pwm.frequency = pwm_frequency
 
     '''
     The drive_pwm_neutral value is determined from the exomy.yaml file.
@@ -87,10 +91,12 @@ On each motor you have to turn the correction screw until the motor really stand
     pin_list = get_driving_pins()
 
     for pin in pin_list:
-        pwm.set_pwm(pin, 0, value)
+        #pwm.set_pwm(pin, 0, value)
+        pwm.channels[pin].duty_cycle = value
         time.sleep(0.1)
 
     input('Press any button if you are done to complete configuration\n')
 
     for pin in pin_list:
-        pwm.set_pwm(pin, 0, 0)
+        #pwm.set_pwm(pin, 0, 0)
+        pwm.channels[pin].duty_cycle = 0

@@ -1,4 +1,6 @@
-import Adafruit_PCA9685
+from adafruit_pca9685 import PCA9685
+from board import SCL, SDA
+import busio
 import yaml
 import time
 import os
@@ -9,43 +11,22 @@ config_filename = '../config/exomy.yaml'
 def get_steering_motor_pins():
     steering_motor_pins = {}
     with open(config_filename, 'r') as file:
-        param_dict = yaml.load(file, yaml.FullLoader)
-    
-    if 'exomy' in param_dict:
-        param_dict = param_dict['exomy']
-        if 'ros__parameters' in param_dict:
-            param_dict = param_dict['ros__parameters']
-            for param_key, param_value in param_dict.items():
-                if('pin_steer_' in str(param_key)):
-                    steering_motor_pins[param_key] = param_value
-            return steering_motor_pins
-        else:
-            print('Unexpected format of exomy.yaml file! Missing ros__parameters')
-            exit()
-    else:
-        print('Unexpected format of exomy.yaml file! Missing namespace')
-        exit()
-        
+        param_dict = yaml.safe_load(file)
+
+    for param_key, param_value in param_dict.items():
+        if('pin_steer_' in str(param_key)):
+            steering_motor_pins[param_key] = param_value
+    return steering_motor_pins
 
 def get_steering_pwm_neutral_values():
     steering_pwm_neutral_values = {}
     with open(config_filename, 'r') as file:
-        param_dict = yaml.load(file, yaml.FullLoader)
+        param_dict = yaml.safe_load(file)
 
-    if 'exomy' in param_dict:
-        param_dict = param_dict['exomy']
-        if 'ros__parameters' in param_dict:
-            param_dict = param_dict['ros__parameters']
-            for param_key, param_value in param_dict.items():
-                if('steer_pwm_neutral_' in str(param_key)):
-                    steering_pwm_neutral_values[param_key] = param_value
-            return steering_pwm_neutral_values
-        else:
-            print('Unexpected format of exomy.yaml file! Missing ros__parameters')
-            exit()
-    else:
-        print('Unexpected format of exomy.yaml file! Missing namespace')
-        exit()
+    for param_key, param_value in param_dict.items():
+        if('steer_pwm_neutral_' in str(param_key)):
+            steering_pwm_neutral_values[param_key] = param_value
+    return steering_pwm_neutral_values
 
 
 def get_position_name(name):
@@ -119,28 +100,28 @@ ctrl+c - Exit script
     if not os.path.exists(config_filename):
         print("exomy.yaml does not exist. Finish config_motor_pins.py to generate it.")
         exit()
+    i2c_bus = busio.I2C(SCL, SDA)
 
-    pwm = Adafruit_PCA9685.PCA9685()
+    pwm = PCA9685(i2c_bus)
     # For most motors a pwm frequency of 50Hz is normal
     pwm_frequency = 50.0  # Hz
-    pwm.set_pwm_freq(pwm_frequency)
-
+    pwm.frequency = pwm_frequency
     # The cycle is the inverted frequency converted to milliseconds
     cycle = 1.0/pwm_frequency * 1000.0  # ms
 
     # The time the pwm signal is set to on during the duty cycle
-    on_time = 1.5  # ms
+    on_time = 0.75
+      # ms
 
     # Duty cycle is the percentage of a cycle the signal is on
     duty_cycle = on_time/cycle
 
     # The PCA 9685 board requests a 12 bit number for the duty_cycle
-    initial_value = int(duty_cycle*4096.0)
+    initial_value = int(duty_cycle*65536.0)
 
     # Get all steering pins
     steering_motor_pins = get_steering_motor_pins()
     pwm_neutral_dict = get_steering_pwm_neutral_values()
-
     # Iterating over all motors and fine tune the zero value
     for pin_name, pin_value in steering_motor_pins.items():
         pwm_neutral_name = pin_name.replace('pin_steer_', 'steer_pwm_neutral_')
@@ -149,19 +130,19 @@ ctrl+c - Exit script
         print('Set ' + get_position_name(pin_name) + ' steering motor: \n')
         while(1):
             # Set motor
-            pwm.set_pwm(pin_value, 0, pwm_neutral_value)
+            pwm.channels[pin_value].duty_cycle = pwm_neutral_value
             time.sleep(0.1)
             print('Current value: ' + str(pwm_neutral_value) + '\n')
-            input_str = input(
+            inputtx = input(
                 'q-set / a-decrease pwm neutral value/ d-increase pwm neutral value\n')
-            if(input_str is 'q'):
+            if(inputtx is 'q'):
                 print('PWM neutral value for ' + get_position_name(pin_name) +
                       ' has been set.\n')
                 break
-            elif(input_str is 'a'):
+            elif(inputtx is 'a'):
                 print('Decreased pwm neutral value')
                 pwm_neutral_value-= 5
-            elif(input_str is 'd'):
+            elif(inputtx is 'd'):
                 print('Increased pwm neutral value')
                 pwm_neutral_value += 5
         pwm_neutral_dict[pwm_neutral_name] = pwm_neutral_value

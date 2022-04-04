@@ -1,4 +1,6 @@
-import Adafruit_PCA9685
+from adafruit_pca9685 import PCA9685
+from board import SCL, SDA
+import busio
 import time
 import sys
 '''
@@ -20,11 +22,12 @@ pin = int(sys.argv[1])
 print('Pin: '+str(pin))
 
 
-pwm = Adafruit_PCA9685.PCA9685()
-# For most motors a pwm frequency of 50Hz is normal
-pwm_frequency = 50.0 #Hz
-pwm.set_pwm_freq(pwm_frequency)
+i2c_bus = busio.I2C(SCL, SDA)
 
+pwm = PCA9685(i2c_bus)
+# For most motors a pwm frequency of 50Hz is normal
+pwm_frequency = 50.0  # Hz
+pwm.frequency = pwm_frequency
 # The cycle is the inverted frequency converted to milliseconds
 cycle = 1.0/pwm_frequency * 1000.0 #ms 
 
@@ -39,7 +42,7 @@ while(selection != '0'):
     print("1. Min to Max oscilation")
     print('2. Incremental positioning')
     print('0. Abort')
-    selection = input()
+    selection = raw_input()
 
     if (int(selection) == 1):
 
@@ -56,7 +59,8 @@ while(selection != '0'):
         
         dc_list = [min_dc, mid_dc, max_dc, mid_dc]
         for dc in dc_list:
-            pwm.set_pwm(pin, 0, int(dc*4096.0))
+            #pwm.set_pwm(pin, 0, int(dc*4096.0))
+            pwm.channels[pin].duty_cycle = int(dc*65536.0)
             time.sleep(2.0)
             
     if (int(selection) == 2):
@@ -83,10 +87,10 @@ while(selection != '0'):
 
             curr_dc = curr_t/cycle
             
-            curr_pwm = int(curr_dc*4096.0)
+            curr_pwm = int(curr_dc*65536.0)
             print("t_current:\t{0:.4f} [ms]\nstep_size:\t{1:.4f} [ms]\ncurr_pwm: {2:.2f}".format(curr_t, step_size, curr_pwm))
-                        
-            pwm.set_pwm(pin, 0, curr_pwm)
+            pwm.channels[pin].duty_cycle = curr_pwm            
+            #pwm.set_pwm(pin, 0, curr_pwm)
             
         
 

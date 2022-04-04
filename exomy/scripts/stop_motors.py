@@ -1,14 +1,18 @@
-import Adafruit_PCA9685
+from adafruit_pca9685 import PCA9685
+from board import SCL, SDA
+import busio
 import time
 import sys
 
 '''
 This script simply stops all the motors, in case they were left in a running state. 
 '''
-pwm = Adafruit_PCA9685.PCA9685()
+i2c_bus = busio.I2C(SCL, SDA)
+
+pwm = PCA9685(i2c_bus)
 # For most motors a pwm frequency of 50Hz is normal
 pwm_frequency = 50.0  # Hz
-pwm.set_pwm_freq(pwm_frequency)
+pwm.frequency = pwm_frequency
 
 for pin_number in range(16):
-    pwm.set_pwm(pin_number, 0, 0)
+    pwm.channels[pin_number].duty_cycle = 0
