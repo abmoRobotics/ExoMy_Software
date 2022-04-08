@@ -1,2 +1,2 @@
-int64[] motor_speeds
-int64[] motor_angles
+float64[] motor_velocities
+float64[] steering_angles

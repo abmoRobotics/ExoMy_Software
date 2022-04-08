@@ -32,7 +32,9 @@ setup(
         'console_scripts': [
             'motor_node = exomy.motor_node:main',
             'gamepad_parser_node = exomy.gamepad_parser_node:main',
-            'robot_node = exomy.robot_node:main',
+            'RLModel_node = exomy.RLModel_node:main',
+            'Camera_node = exomy.Camera_node:main',
+            'Kinematics_node = exomy.Kinematics_node:main'
         ],
     },
 )

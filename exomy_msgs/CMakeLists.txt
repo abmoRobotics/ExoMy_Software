@@ -15,9 +15,9 @@ find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/Actions.msg"
+  "msg/CameraData.msg"
   "msg/MotorCommands.msg"
-  "msg/RoverCommand.msg"
-  "msg/Screen.msg"
   )
 
 ament_package()

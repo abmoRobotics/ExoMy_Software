@@ -39,25 +39,25 @@ def load_value(model_name, features=[512,256,128]):
     return model
 
 
-#model = load_model('./../runs/33000_policy.pt', features=[512,256,128])
-#value = load_value('./../runs/33000_policy.pt', features=[512,256,128])
-#a = torch.tensor([ [3.2,2.38,1.7]])
+model = load_model('../resource/policies/822000_policy.pt', features=[512,256,128])
+value = load_value('../resource/policies/822000_policy.pt', features=[512,256,128])
+a = torch.tensor([ [3.2,2.38,1.7]])
 
-#cfg_ppo = PPO_DEFAULT_CONFIG.copy()
-#test = {"policy" : model,
-#        "value" : value}
-#b = [3]
-#observation_space = Box(-math.inf,math.inf,(3,))
-#action_space = Box(-1.0,1.0,(2,))
-# print(a)
-# print(action_space)
-# print(observation_space.shape[0])
-# agent = PPO(models=test,
-#             memory=None, 
-#             cfg=cfg_ppo, 
-#             observation_space=observation_space, 
-#             action_space=action_space,
-#             device='cuda:0')
+cfg_ppo = PPO_DEFAULT_CONFIG.copy()
+test = {"policy" : model,
+       "value" : value}
+b = [3]
+observation_space = Box(-math.inf,math.inf,(3,))
+action_space = Box(-1.0,1.0,(2,))
+print(a)
+print(action_space)
+print(observation_space.shape[0])
+agent = PPO(models=test,
+            memory=None, 
+            cfg=cfg_ppo, 
+            observation_space=observation_space, 
+            action_space=action_space,
+            device='cuda:0')
 
 
 # i2c_bus = busio.I2C(SCL, SDA)
@@ -70,16 +70,21 @@ def load_value(model_name, features=[512,256,128]):
 robot = Rover()
 #robot.setMotorsFromKinematics(Ackermann(torch.tensor(0).unsqueeze(), torch.tensor(1).unsqueeze() ))
 #observation_space[2]
-#vel = agent.policy.act(a,inference=True)
-# print(vel)
+vel = agent.policy.act(a,inference=True)
+print(vel)
 # print(torch.unsqueeze(vel[0][0][0], 0))
 # print(torch.unsqueeze(vel[0][0][1], 0))
-steering_angles, motor_velocities = Ackermann(torch.tensor([0.0], device='cuda:0'), torch.tensor([1.0], device='cuda:0'))
+steering_angles, motor_velocities = Ackermann(vel[0][0][0].unsqueeze(0), vel[0][0][1].unsqueeze(0))
 robot.setMotorsFromKinematics(steering_angles, motor_velocities)
-
 time.sleep(10)
-steering_angles2, motor_velocities2 = Ackermann(torch.tensor([1.0], device='cuda:0'), torch.tensor([0.2], device='cuda:0'))
-robot.setMotorsFromKinematics(steering_angles2, motor_velocities2)
+
+
+a = torch.tensor([ [1.2,1.38,0.7]])
+vel = agent.policy.act(a,inference=True)
+print(vel)
+
+steering_angles, motor_velocities = Ackermann(vel[0][0][0].unsqueeze(0), vel[0][0][1].unsqueeze(0))
+robot.setMotorsFromKinematics(steering_angles, motor_velocities)
 time.sleep(10)
 #a = torch.tensor([4,4,4])
 #print(model)

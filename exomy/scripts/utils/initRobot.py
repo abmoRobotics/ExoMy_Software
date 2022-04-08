@@ -10,12 +10,12 @@ from adafruit_pca9685 import PCA9685
 
 
 class Rover():
-    def __init__(self):
+    def __init__(self, config_filename):
         self.i2c_bus = busio.I2C(SCL, SDA)
         self.module = PCA9685(self.i2c_bus)
         self.module.frequency = 50
         self.cycle = 1.0/self.module.frequency * 1000.0  # ms
-        config_filename = '../config/exomy.yaml'
+        #config_filename = '/root/exomy_ws/src/exomy/config/exomy.yaml'
         self.steeringPins = self.get_steering_motor_pins(config_filename)
         self.steeringNeutrals = self.get_steering_pwm_neutral_values(config_filename)
 
@@ -23,7 +23,7 @@ class Rover():
         self.driveNeutral = self.get_drive_pwm_neutral(config_filename)
         self.drivePWMrange = self.get_drive_pwm_range(config_filename)
         self.steerPWMrange = self.get_steer_pwm_range(config_filename)
-        #self.startup_sequence()
+        self.startup_sequence()
         atexit.register(self.exit_handler)
 
     def setMotorsFromKinematics(self, steering_angles, motor_velocities):
@@ -33,24 +33,22 @@ class Rover():
         steeringValues = {'pin_steer_fl': 0, 'pin_steer_fr': 1, 'pin_steer_cl': 2, 'pin_steer_cr': 3, 'pin_steer_rl': 4, 'pin_steer_rr': 5}
         driveValues = {'pin_drive_fl': 0, 'pin_drive_fr': 1, 'pin_drive_cl': 2, 'pin_drive_cr': 3, 'pin_drive_rl': 4, 'pin_drive_rr': 5}
 
-        steering_angles = steering_angles.cpu().detach().numpy()
-        motor_velocities = motor_velocities.cpu().detach().numpy()
-        print(len(steering_angles[0]))
+        #steering_angles = steering_angles.cpu().detach().numpy()
+        #motor_velocities = motor_velocities.cpu().detach().numpy()
+        #print(len(steering_angles))
 
         for pin_name, pin_num in self.steeringPins.items():
-            print((pin_name, pin_num))
+            #print((pin_name, pin_num))
             self.module.channels[self.steeringPins[pin_name]].duty_cycle  = self.remap(
-                steering_angles[0][steeringValues[pin_name]], -math.pi/2, math.pi/2, 
+                steering_angles[steeringValues[pin_name]], -math.pi/2, math.pi/2, 
                     self.steeringNeutrals[steeringAnglesMotors[pin_name]] - (self.steerPWMrange/2), 
                         self.steeringNeutrals[steeringAnglesMotors[pin_name]] + (self.steerPWMrange/2))
         #print(int(steeringAnglesMotors[0][0]))
         for pin_name, pin_num in self.drivePins.items():
             self.module.channels[self.drivePins[pin_name]].duty_cycle  = self.remap(
-                motor_velocities[0][driveValues[pin_name]], -math.pi, math.pi, 
+                motor_velocities[driveValues[pin_name]], -math.pi, math.pi, 
                     self.driveNeutral - self.drivePWMrange, self.driveNeutral + self.drivePWMrange)
 
-    def getObsevations(self):
-        pass
         
     def get_steering_motor_pins(self, config_filename):
         steering_motor_pins = {}
