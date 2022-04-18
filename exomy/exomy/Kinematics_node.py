@@ -3,7 +3,7 @@ from rclpy.node import Node
 from rclpy.timer import Timer
 from exomy_msgs.msg import MotorCommands, Actions
 import sys
-sys.path.append('/root/exomy_ws/src/exomy/scripts/utils')
+sys.path.append('/home/xavier/ExoMy_Software/exomy/scripts/utils')
 from kinematicsCPU import kinematicsCPU
 class Kinematics_node(Node):
     """Convert Motor Commands"""

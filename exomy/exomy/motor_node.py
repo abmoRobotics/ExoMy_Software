@@ -1,10 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
 from rclpy.timer import Timer
 from exomy_msgs.msg import MotorCommands
 import sys
-sys.path.append('/root/exomy_ws/src/exomy/scripts/utils')
+sys.path.append('/home/xavier/ExoMy_Software/exomy/scripts/utils')
 from initRobot import Rover
 
 class MotorNode(Node):
@@ -14,7 +14,7 @@ class MotorNode(Node):
         """Init Node."""
         self.node_name = 'motor_node'
         super().__init__(self.node_name)
-        config_file = '/root/exomy_ws/src/exomy/config/exomy.yaml'
+        config_file = '/home/xavier/ExoMy_Software/exomy/config/exomy.yaml'
         self.robot = Rover(config_file)
 
         # Create Subscription
