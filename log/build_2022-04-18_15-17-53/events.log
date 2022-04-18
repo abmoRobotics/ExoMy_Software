@@ -1,0 +1,240 @@
+[0.000000] (-) TimerEvent: {}
+[0.001174] (exomy_msgs) JobQueued: {'identifier': 'exomy_msgs', 'dependencies': OrderedDict()}
+[0.002504] (exomy) JobQueued: {'identifier': 'exomy', 'dependencies': OrderedDict([('exomy_msgs', '/home/xavier/ExoMy_Software/install/exomy_msgs')])}
+[0.004218] (exomy_msgs) JobStarted: {'identifier': 'exomy_msgs'}
+[0.047459] (exomy_msgs) JobProgress: {'identifier': 'exomy_msgs', 'progress': 'cmake'}
+[0.050667] (exomy_msgs) JobProgress: {'identifier': 'exomy_msgs', 'progress': 'build'}
+[0.053869] (exomy_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/xavier/ExoMy_Software/build/exomy_msgs', '--', '-j8', '-l8'], 'cwd': '/home/xavier/ExoMy_Software/build/exomy_msgs', 'env': OrderedDict([('PYENV_VIRTUALENV_INIT', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'xavier'), ('SSH_CLIENT', '100.116.201.95 55948 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/xavier/.vscode-server/bin/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/xavier/ExoMy_Software/install/exomy_msgs/lib:/usr/local/cuda-11.4/lib64:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:'), ('BROWSER', '/home/xavier/.vscode-server/bin/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/xavier'), ('OLDPWD', '/home/xavier'), ('TERM_PROGRAM_VERSION', '1.65.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-38968dbf-1f66-4a52-9ad8-1e67dd9e0b0a.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/xavier/.vscode-server/bin/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/xavier/.vscode-server/bin/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1/node'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/xavier/ExoMy_Software/install:/home/xavier/sensor_msgs_py/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'xavier'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/xavier/.pyenv/plugins/pyenv-virtualenv/shims:/home/xavier/.pyenv/shims:/home/xavier/.pyenv/bin:/usr/local/cuda-11.4/bin:/home/xavier/.vscode-server/bin/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1/bin/remote-cli:/home/xavier/.local/bin:/home/xavier/.pyenv/plugins/pyenv-virtualenv/shims:/home/xavier/.pyenv/shims:/home/xavier/.pyenv/bin:/opt/ros/foxy/bin:/usr/local/cuda-11.4/bin:/home/xavier/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-9cf7fb2191.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/xavier/sensor_msgs_py/install/sensor_msgs_py:/home/xavier/ExoMy_Software/install/exomy:/home/xavier/ExoMy_Software/install/exomy_msgs:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/xavier/ExoMy_Software/build/exomy_msgs'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '100.116.201.95 55948 100.124.85.43 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/xavier/sensor_msgs_py/install/sensor_msgs_py/lib/python3.8/site-packages:/home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages:/home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/xavier/ExoMy_Software/install/exomy_msgs:/home/xavier/sensor_msgs_py/install/sensor_msgs_py:/home/xavier/ExoMy_Software/install/exomy:/opt/ros/foxy')]), 'shell': False}
+[0.098600] (-) TimerEvent: {}
+[0.200605] (-) TimerEvent: {}
+[0.250155] (exomy_msgs) StdoutLine: {'line': b'[ 10%] Built target exomy_msgs__rosidl_generator_c\n'}
+[0.252426] (exomy_msgs) StdoutLine: {'line': b'[ 12%] Built target exomy_msgs__cpp\n'}
+[0.300798] (-) TimerEvent: {}
+[0.333541] (exomy_msgs) StdoutLine: {'line': b'[ 29%] Built target exomy_msgs__rosidl_typesupport_c\n'}
+[0.334900] (exomy_msgs) StdoutLine: {'line': b'[ 36%] Built target exomy_msgs__rosidl_typesupport_introspection_cpp\n'}
+[0.335951] (exomy_msgs) StdoutLine: {'line': b'[ 44%] Built target exomy_msgs__rosidl_typesupport_cpp\n'}
+[0.341506] (exomy_msgs) StdoutLine: {'line': b'[ 55%] Built target exomy_msgs__rosidl_typesupport_introspection_c\n'}
+[0.352378] (exomy_msgs) StdoutLine: {'line': b'[ 65%] Built target exomy_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[0.400994] (-) TimerEvent: {}
+[0.435372] (exomy_msgs) StdoutLine: {'line': b'[ 76%] Built target exomy_msgs__rosidl_typesupport_fastrtps_c\n'}
+[0.501254] (-) TimerEvent: {}
+[0.504455] (exomy_msgs) StdoutLine: {'line': b'[ 76%] Built target exomy_msgs\n'}
+[0.584449] (exomy_msgs) StdoutLine: {'line': b'[ 78%] Built target exomy_msgs__py\n'}
+[0.601463] (-) TimerEvent: {}
+[0.670497] (exomy_msgs) StdoutLine: {'line': b'[ 87%] Built target exomy_msgs__python\n'}
+[0.701683] (-) TimerEvent: {}
+[0.763004] (exomy_msgs) StdoutLine: {'line': b'[ 91%] Built target exomy_msgs__rosidl_typesupport_c__pyext\n'}
+[0.765167] (exomy_msgs) StdoutLine: {'line': b'[ 95%] Built target exomy_msgs__rosidl_typesupport_introspection_c__pyext\n'}
+[0.771458] (exomy_msgs) StdoutLine: {'line': b'[100%] Built target exomy_msgs__rosidl_typesupport_fastrtps_c__pyext\n'}
+[0.801919] (-) TimerEvent: {}
+[0.812399] (exomy_msgs) CommandEnded: {'returncode': 0}
+[0.902368] (-) TimerEvent: {}
+[1.004317] (-) TimerEvent: {}
+[1.106699] (exomy_msgs) JobProgress: {'identifier': 'exomy_msgs', 'progress': 'install'}
+[1.111044] (-) TimerEvent: {}
+[1.143956] (exomy_msgs) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/xavier/ExoMy_Software/build/exomy_msgs'], 'cwd': '/home/xavier/ExoMy_Software/build/exomy_msgs', 'env': OrderedDict([('PYENV_VIRTUALENV_INIT', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'xavier'), ('SSH_CLIENT', '100.116.201.95 55948 22'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/xavier/.vscode-server/bin/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/xavier/ExoMy_Software/install/exomy_msgs/lib:/usr/local/cuda-11.4/lib64:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:'), ('BROWSER', '/home/xavier/.vscode-server/bin/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/xavier'), ('OLDPWD', '/home/xavier'), ('TERM_PROGRAM_VERSION', '1.65.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-38968dbf-1f66-4a52-9ad8-1e67dd9e0b0a.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/xavier/.vscode-server/bin/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/xavier/.vscode-server/bin/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1/node'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/xavier/ExoMy_Software/install:/home/xavier/sensor_msgs_py/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'xavier'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '3'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/xavier/.pyenv/plugins/pyenv-virtualenv/shims:/home/xavier/.pyenv/shims:/home/xavier/.pyenv/bin:/usr/local/cuda-11.4/bin:/home/xavier/.vscode-server/bin/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1/bin/remote-cli:/home/xavier/.local/bin:/home/xavier/.pyenv/plugins/pyenv-virtualenv/shims:/home/xavier/.pyenv/shims:/home/xavier/.pyenv/bin:/opt/ros/foxy/bin:/usr/local/cuda-11.4/bin:/home/xavier/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-9cf7fb2191.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/xavier/sensor_msgs_py/install/sensor_msgs_py:/home/xavier/ExoMy_Software/install/exomy:/home/xavier/ExoMy_Software/install/exomy_msgs:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/xavier/ExoMy_Software/build/exomy_msgs'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '100.116.201.95 55948 100.124.85.43 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/xavier/sensor_msgs_py/install/sensor_msgs_py/lib/python3.8/site-packages:/home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages:/home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/xavier/ExoMy_Software/install/exomy_msgs:/home/xavier/sensor_msgs_py/install/sensor_msgs_py:/home/xavier/ExoMy_Software/install/exomy:/opt/ros/foxy')]), 'shell': False}
+[1.181373] (exomy_msgs) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[1.182670] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/ament_index/resource_index/rosidl_interfaces/exomy_msgs\n'}
+[1.183433] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs\n'}
+[1.195090] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg\n'}
+[1.195992] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/rosidl_generator_c__visibility_control.h\n'}
+[1.196428] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/motor_commands.h\n'}
+[1.196857] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/camera_data.h\n'}
+[1.197171] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail\n'}
+[1.197560] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__functions.c\n'}
+[1.197859] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__struct.h\n'}
+[1.198133] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__type_support.h\n'}
+[1.198682] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__functions.h\n'}
+[1.198953] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__functions.h\n'}
+[1.199200] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__struct.h\n'}
+[1.199740] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__functions.c\n'}
+[1.200520] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__type_support.h\n'}
+[1.200785] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__functions.h\n'}
+[1.201051] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__type_support.h\n'}
+[1.201517] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__functions.c\n'}
+[1.201895] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__struct.h\n'}
+[1.202200] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/actions.h\n'}
+[1.202520] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/environment/library_path.sh\n'}
+[1.202956] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/environment/library_path.dsv\n'}
+[1.203215] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__rosidl_generator_c.so\n'}
+[1.203489] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs\n'}
+[1.204477] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg\n'}
+[1.205331] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[1.206103] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail\n'}
+[1.206393] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__rosidl_typesupport_fastrtps_c.h\n'}
+[1.206673] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__rosidl_typesupport_fastrtps_c.h\n'}
+[1.206948] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__rosidl_typesupport_fastrtps_c.h\n'}
+[1.207384] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__rosidl_typesupport_fastrtps_c.so\n'}
+[1.207638] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs\n'}
+[1.207877] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg\n'}
+[1.208230] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail\n'}
+[1.208499] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/dds_fastrtps\n'}
+[1.208971] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[1.209263] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[1.209675] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[1.210146] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[1.210414] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__rosidl_typesupport_fastrtps_cpp.so\n'}
+[1.210669] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs\n'}
+[1.210942] (-) TimerEvent: {}
+[1.211617] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg\n'}
+[1.211920] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[1.212299] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail\n'}
+[1.212610] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__rosidl_typesupport_introspection_c.h\n'}
+[1.212876] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__rosidl_typesupport_introspection_c.h\n'}
+[1.213150] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__type_support.c\n'}
+[1.213390] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__type_support.c\n'}
+[1.214078] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__type_support.c\n'}
+[1.214467] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__rosidl_typesupport_introspection_c.h\n'}
+[1.214755] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__rosidl_typesupport_introspection_c.so\n'}
+[1.215039] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__rosidl_typesupport_c.so\n'}
+[1.215336] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs\n'}
+[1.215634] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg\n'}
+[1.215900] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/camera_data.hpp\n'}
+[1.216240] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail\n'}
+[1.216547] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__struct.hpp\n'}
+[1.216793] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__struct.hpp\n'}
+[1.217055] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__traits.hpp\n'}
+[1.217334] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__builder.hpp\n'}
+[1.217582] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__builder.hpp\n'}
+[1.217827] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__traits.hpp\n'}
+[1.218086] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__struct.hpp\n'}
+[1.218406] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__builder.hpp\n'}
+[1.218663] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__traits.hpp\n'}
+[1.219052] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/actions.hpp\n'}
+[1.219350] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/motor_commands.hpp\n'}
+[1.219691] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs\n'}
+[1.219955] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg\n'}
+[1.220297] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail\n'}
+[1.220611] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__type_support.cpp\n'}
+[1.220870] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__rosidl_typesupport_introspection_cpp.hpp\n'}
+[1.221117] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__type_support.cpp\n'}
+[1.221375] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__rosidl_typesupport_introspection_cpp.hpp\n'}
+[1.221644] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__rosidl_typesupport_introspection_cpp.hpp\n'}
+[1.221951] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__type_support.cpp\n'}
+[1.223283] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__rosidl_typesupport_introspection_cpp.so\n'}
+[1.223619] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__rosidl_typesupport_cpp.so\n'}
+[1.223878] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/environment/pythonpath.sh\n'}
+[1.224251] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/environment/pythonpath.dsv\n'}
+[1.224548] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/__init__.py\n'}
+[1.311199] (-) TimerEvent: {}
+[1.412200] (-) TimerEvent: {}
+[1.514236] (-) TimerEvent: {}
+[1.545131] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/msg\n'}
+[1.546221] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/msg/_motor_commands.py\n'}
+[1.546555] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/msg/_actions.py\n'}
+[1.546813] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/msg/__init__.py\n'}
+[1.547083] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/msg/_actions_s.c\n'}
+[1.547515] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/msg/_camera_data.py\n'}
+[1.547761] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/msg/_camera_data_s.c\n'}
+[1.547997] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/msg/_motor_commands_s.c\n'}
+[1.548330] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/exomy_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so\n'}
+[1.549715] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/exomy_msgs_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so\n'}
+[1.551668] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/exomy_msgs_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so\n'}
+[1.553440] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__python.so\n'}
+[1.554414] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/msg/Actions.idl\n'}
+[1.554908] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/msg/CameraData.idl\n'}
+[1.555391] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/msg/MotorCommands.idl\n'}
+[1.556057] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/msg/Actions.msg\n'}
+[1.556654] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/msg/CameraData.msg\n'}
+[1.557039] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/msg/MotorCommands.msg\n'}
+[1.557405] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/ament_index/resource_index/package_run_dependencies/exomy_msgs\n'}
+[1.557775] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/ament_index/resource_index/parent_prefix_path/exomy_msgs\n'}
+[1.558196] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/environment/ament_prefix_path.sh\n'}
+[1.558460] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/environment/ament_prefix_path.dsv\n'}
+[1.558724] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/environment/path.sh\n'}
+[1.559084] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/environment/path.dsv\n'}
+[1.559455] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/local_setup.bash\n'}
+[1.559872] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/local_setup.sh\n'}
+[1.560284] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/local_setup.zsh\n'}
+[1.561000] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/local_setup.dsv\n'}
+[1.561879] (exomy_msgs) StdoutLine: {'line': b'-- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/package.dsv\n'}
+[1.562439] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/ament_index/resource_index/packages/exomy_msgs\n'}
+[1.562732] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgs__rosidl_generator_cExport.cmake\n'}
+[1.563005] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgs__rosidl_generator_cExport-noconfig.cmake\n'}
+[1.563260] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgs__rosidl_typesupport_introspection_cExport.cmake\n'}
+[1.563513] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[1.564135] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgs__rosidl_typesupport_cExport.cmake\n'}
+[1.564537] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgs__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[1.565165] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgs__rosidl_generator_cppExport.cmake\n'}
+[1.565716] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgs__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[1.566002] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[1.566812] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgs__rosidl_typesupport_cppExport.cmake\n'}
+[1.567281] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgs__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[1.567709] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/rosidl_cmake-extras.cmake\n'}
+[1.568037] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[1.568481] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[1.569060] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[1.569430] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[1.569747] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[1.570066] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[1.570339] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgsConfig.cmake\n'}
+[1.570637] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgsConfig-version.cmake\n'}
+[1.570967] (exomy_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/package.xml\n'}
+[1.575514] (exomy_msgs) CommandEnded: {'returncode': 0}
+[1.614785] (-) TimerEvent: {}
+[1.716434] (-) TimerEvent: {}
+[1.818132] (-) TimerEvent: {}
+[1.918973] (-) TimerEvent: {}
+[1.983606] (exomy_msgs) JobEnded: {'identifier': 'exomy_msgs', 'rc': 0}
+[1.989415] (exomy) JobStarted: {'identifier': 'exomy'}
+[2.019495] (-) TimerEvent: {}
+[2.121866] (-) TimerEvent: {}
+[2.223474] (-) TimerEvent: {}
+[2.324456] (-) TimerEvent: {}
+[2.425220] (-) TimerEvent: {}
+[2.525976] (-) TimerEvent: {}
+[2.626776] (-) TimerEvent: {}
+[2.727478] (-) TimerEvent: {}
+[2.830486] (-) TimerEvent: {}
+[2.933049] (-) TimerEvent: {}
+[3.034559] (-) TimerEvent: {}
+[3.135342] (-) TimerEvent: {}
+[3.236202] (-) TimerEvent: {}
+[3.337044] (-) TimerEvent: {}
+[3.437876] (-) TimerEvent: {}
+[3.538792] (-) TimerEvent: {}
+[3.639638] (-) TimerEvent: {}
+[3.740607] (-) TimerEvent: {}
+[3.841383] (-) TimerEvent: {}
+[3.942204] (-) TimerEvent: {}
+[4.043031] (-) TimerEvent: {}
+[4.143936] (-) TimerEvent: {}
+[4.245218] (-) TimerEvent: {}
+[4.335118] (exomy) Command: {'cmd': ['/usr/bin/python3', 'setup.py', 'egg_info', '--egg-base', '../build/exomy', 'build', '--build-base', '/home/xavier/ExoMy_Software/build/exomy/build', 'install', '--prefix', '/home/xavier/ExoMy_Software/install/exomy', '--record', '/home/xavier/ExoMy_Software/build/exomy/install.log', '--single-version-externally-managed'], 'cwd': '/home/xavier/ExoMy_Software/exomy', 'env': {'PYENV_VIRTUALENV_INIT': '1', 'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'xavier', 'SSH_CLIENT': '100.116.201.95 55948 22', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/xavier/.vscode-server/bin/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/xavier/ExoMy_Software/install/exomy_msgs/lib:/usr/local/cuda-11.4/lib64:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64', 'BROWSER': '/home/xavier/.vscode-server/bin/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1/bin/helpers/browser.sh', 'MOTD_SHOWN': 'pam', 'HOME': '/home/xavier', 'OLDPWD': '/home/xavier', 'TERM_PROGRAM_VERSION': '1.65.2', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-38968dbf-1f66-4a52-9ad8-1e67dd9e0b0a.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/xavier/.vscode-server/bin/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/xavier/.vscode-server/bin/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1/node', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/xavier/ExoMy_Software/install:/home/xavier/sensor_msgs_py/install', 'ROS_DISTRO': 'foxy', 'LOGNAME': 'xavier', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '3', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/home/xavier/.pyenv/plugins/pyenv-virtualenv/shims:/home/xavier/.pyenv/shims:/home/xavier/.pyenv/bin:/usr/local/cuda-11.4/bin:/home/xavier/.vscode-server/bin/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1/bin/remote-cli:/home/xavier/.local/bin:/home/xavier/.pyenv/plugins/pyenv-virtualenv/shims:/home/xavier/.pyenv/shims:/home/xavier/.pyenv/bin:/opt/ros/foxy/bin:/usr/local/cuda-11.4/bin:/home/xavier/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-9cf7fb2191.sock', 'TERM_PROGRAM': 'vscode', 'AMENT_PREFIX_PATH': '/home/xavier/sensor_msgs_py/install/sensor_msgs_py:/home/xavier/ExoMy_Software/install/exomy:/home/xavier/ExoMy_Software/install/exomy_msgs:/opt/ros/foxy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/xavier/ExoMy_Software/build/exomy', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '100.116.201.95 55948 100.124.85.43 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages:/home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages:/home/xavier/sensor_msgs_py/install/sensor_msgs_py/lib/python3.8/site-packages:/home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/xavier/ExoMy_Software/install/exomy_msgs'}, 'shell': False}
+[4.345401] (-) TimerEvent: {}
+[4.446555] (-) TimerEvent: {}
+[4.547573] (-) TimerEvent: {}
+[4.648943] (-) TimerEvent: {}
+[4.749941] (-) TimerEvent: {}
+[4.850764] (-) TimerEvent: {}
+[4.951537] (-) TimerEvent: {}
+[5.035281] (exomy) StdoutLine: {'line': b'running egg_info\n'}
+[5.037660] (exomy) StdoutLine: {'line': b'writing ../build/exomy/exomy.egg-info/PKG-INFO\n'}
+[5.038671] (exomy) StdoutLine: {'line': b'writing dependency_links to ../build/exomy/exomy.egg-info/dependency_links.txt\n'}
+[5.039768] (exomy) StdoutLine: {'line': b'writing entry points to ../build/exomy/exomy.egg-info/entry_points.txt\n'}
+[5.040515] (exomy) StdoutLine: {'line': b'writing requirements to ../build/exomy/exomy.egg-info/requires.txt\n'}
+[5.040964] (exomy) StdoutLine: {'line': b'writing top-level names to ../build/exomy/exomy.egg-info/top_level.txt\n'}
+[5.051712] (-) TimerEvent: {}
+[5.152540] (-) TimerEvent: {}
+[5.158282] (exomy) StdoutLine: {'line': b"reading manifest file '../build/exomy/exomy.egg-info/SOURCES.txt'\n"}
+[5.161158] (exomy) StdoutLine: {'line': b"writing manifest file '../build/exomy/exomy.egg-info/SOURCES.txt'\n"}
+[5.162169] (exomy) StdoutLine: {'line': b'running build\n'}
+[5.162810] (exomy) StdoutLine: {'line': b'running build_py\n'}
+[5.164474] (exomy) StdoutLine: {'line': b'running install\n'}
+[5.167227] (exomy) StdoutLine: {'line': b'running install_lib\n'}
+[5.172805] (exomy) StdoutLine: {'line': b'running install_data\n'}
+[5.174329] (exomy) StdoutLine: {'line': b'running install_egg_info\n'}
+[5.179285] (exomy) StdoutLine: {'line': b"removing '/home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages/exomy-2.0.0-py3.8.egg-info' (and everything under it)\n"}
+[5.182766] (exomy) StdoutLine: {'line': b'Copying ../build/exomy/exomy.egg-info to /home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages/exomy-2.0.0-py3.8.egg-info\n'}
+[5.184298] (exomy) StdoutLine: {'line': b'running install_scripts\n'}
+[5.239072] (exomy) StdoutLine: {'line': b'Installing Camera_node script to /home/xavier/ExoMy_Software/install/exomy/lib/exomy\n'}
+[5.239823] (exomy) StdoutLine: {'line': b'Installing Kinematics_node script to /home/xavier/ExoMy_Software/install/exomy/lib/exomy\n'}
+[5.240534] (exomy) StdoutLine: {'line': b'Installing RLModel_node script to /home/xavier/ExoMy_Software/install/exomy/lib/exomy\n'}
+[5.241106] (exomy) StdoutLine: {'line': b'Installing gamepad_parser_node script to /home/xavier/ExoMy_Software/install/exomy/lib/exomy\n'}
+[5.241693] (exomy) StdoutLine: {'line': b'Installing motor_node script to /home/xavier/ExoMy_Software/install/exomy/lib/exomy\n'}
+[5.243511] (exomy) StdoutLine: {'line': b"writing list of installed files to '/home/xavier/ExoMy_Software/build/exomy/install.log'\n"}
+[5.252754] (-) TimerEvent: {}
+[5.322212] (exomy) CommandEnded: {'returncode': 0}
+[5.352757] (exomy) JobEnded: {'identifier': 'exomy', 'rc': 0}
+[5.355971] (-) TimerEvent: {}
+[5.356489] (-) EventReactorShutdown: {}

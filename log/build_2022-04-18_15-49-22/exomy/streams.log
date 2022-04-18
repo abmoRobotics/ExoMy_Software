@@ -1,0 +1,25 @@
+[2.306s] Invoking command in '/home/xavier/ExoMy_Software/exomy': LD_LIBRARY_PATH=/home/xavier/ExoMy_Software/install/exomy_msgs/lib:/usr/local/cuda-11.4/lib64:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64 PYTHONPATH=/home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages:/home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages:/home/xavier/sensor_msgs_py/install/sensor_msgs_py/lib/python3.8/site-packages:/home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../build/exomy build --build-base /home/xavier/ExoMy_Software/build/exomy/build install --prefix /home/xavier/ExoMy_Software/install/exomy --record /home/xavier/ExoMy_Software/build/exomy/install.log --single-version-externally-managed
+[3.010s] running egg_info
+[3.013s] writing ../build/exomy/exomy.egg-info/PKG-INFO
+[3.013s] writing dependency_links to ../build/exomy/exomy.egg-info/dependency_links.txt
+[3.015s] writing entry points to ../build/exomy/exomy.egg-info/entry_points.txt
+[3.015s] writing requirements to ../build/exomy/exomy.egg-info/requires.txt
+[3.016s] writing top-level names to ../build/exomy/exomy.egg-info/top_level.txt
+[3.135s] reading manifest file '../build/exomy/exomy.egg-info/SOURCES.txt'
+[3.138s] writing manifest file '../build/exomy/exomy.egg-info/SOURCES.txt'
+[3.138s] running build
+[3.139s] running build_py
+[3.141s] running install
+[3.145s] running install_lib
+[3.151s] running install_data
+[3.152s] running install_egg_info
+[3.158s] removing '/home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages/exomy-2.0.0-py3.8.egg-info' (and everything under it)
+[3.159s] Copying ../build/exomy/exomy.egg-info to /home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages/exomy-2.0.0-py3.8.egg-info
+[3.162s] running install_scripts
+[3.217s] Installing Camera_node script to /home/xavier/ExoMy_Software/install/exomy/lib/exomy
+[3.218s] Installing Kinematics_node script to /home/xavier/ExoMy_Software/install/exomy/lib/exomy
+[3.219s] Installing RLModel_node script to /home/xavier/ExoMy_Software/install/exomy/lib/exomy
+[3.219s] Installing gamepad_parser_node script to /home/xavier/ExoMy_Software/install/exomy/lib/exomy
+[3.220s] Installing motor_node script to /home/xavier/ExoMy_Software/install/exomy/lib/exomy
+[3.222s] writing list of installed files to '/home/xavier/ExoMy_Software/build/exomy/install.log'
+[3.300s] Invoked command in '/home/xavier/ExoMy_Software/exomy' returned '0': LD_LIBRARY_PATH=/home/xavier/ExoMy_Software/install/exomy_msgs/lib:/usr/local/cuda-11.4/lib64:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64 PYTHONPATH=/home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages:/home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages:/home/xavier/sensor_msgs_py/install/sensor_msgs_py/lib/python3.8/site-packages:/home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../build/exomy build --build-base /home/xavier/ExoMy_Software/build/exomy/build install --prefix /home/xavier/ExoMy_Software/install/exomy --record /home/xavier/ExoMy_Software/build/exomy/install.log --single-version-externally-managed

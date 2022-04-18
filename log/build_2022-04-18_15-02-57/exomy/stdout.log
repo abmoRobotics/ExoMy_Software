@@ -1,0 +1,23 @@
+running egg_info
+writing ../build/exomy/exomy.egg-info/PKG-INFO
+writing dependency_links to ../build/exomy/exomy.egg-info/dependency_links.txt
+writing entry points to ../build/exomy/exomy.egg-info/entry_points.txt
+writing requirements to ../build/exomy/exomy.egg-info/requires.txt
+writing top-level names to ../build/exomy/exomy.egg-info/top_level.txt
+reading manifest file '../build/exomy/exomy.egg-info/SOURCES.txt'
+writing manifest file '../build/exomy/exomy.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+running install_data
+running install_egg_info
+removing '/home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages/exomy-2.0.0-py3.8.egg-info' (and everything under it)
+Copying ../build/exomy/exomy.egg-info to /home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages/exomy-2.0.0-py3.8.egg-info
+running install_scripts
+Installing Camera_node script to /home/xavier/ExoMy_Software/install/exomy/lib/exomy
+Installing Kinematics_node script to /home/xavier/ExoMy_Software/install/exomy/lib/exomy
+Installing RLModel_node script to /home/xavier/ExoMy_Software/install/exomy/lib/exomy
+Installing gamepad_parser_node script to /home/xavier/ExoMy_Software/install/exomy/lib/exomy
+Installing motor_node script to /home/xavier/ExoMy_Software/install/exomy/lib/exomy
+writing list of installed files to '/home/xavier/ExoMy_Software/build/exomy/install.log'

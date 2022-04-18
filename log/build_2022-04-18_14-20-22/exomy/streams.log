@@ -1,0 +1,48 @@
+[2.613s] Invoking command in '/home/xavier/ExoMy_Software/exomy': CMAKE_PREFIX_PATH=/home/xavier/ExoMy_Software/install/exomy_msgs:/home/xavier/ExoMy_Software/install/realsense2_description:/home/xavier/ExoMy_Software/install/realsense2_camera:/home/xavier/ExoMy_Software/install/realsense2_camera_msgs LD_LIBRARY_PATH=/home/xavier/ExoMy_Software/install/exomy_msgs/lib:/home/xavier/ExoMy_Software/install/realsense2_camera/lib:/home/xavier/ExoMy_Software/install/realsense2_camera_msgs/lib:/usr/local/cuda-11.4/lib64:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64 PYTHONPATH=/home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages:/home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages:/home/xavier/ExoMy_Software/install/realsense2_camera_msgs/lib/python3.8/site-packages:/home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages:/home/xavier/sensor_msgs_py/install/sensor_msgs_py/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../build/exomy build --build-base /home/xavier/ExoMy_Software/build/exomy/build install --prefix /home/xavier/ExoMy_Software/install/exomy --record /home/xavier/ExoMy_Software/build/exomy/install.log --single-version-externally-managed
+[3.465s] running egg_info
+[3.468s] creating ../build/exomy/exomy.egg-info
+[3.469s] writing ../build/exomy/exomy.egg-info/PKG-INFO
+[3.470s] writing dependency_links to ../build/exomy/exomy.egg-info/dependency_links.txt
+[3.470s] writing entry points to ../build/exomy/exomy.egg-info/entry_points.txt
+[3.470s] writing requirements to ../build/exomy/exomy.egg-info/requires.txt
+[3.471s] writing top-level names to ../build/exomy/exomy.egg-info/top_level.txt
+[3.475s] writing manifest file '../build/exomy/exomy.egg-info/SOURCES.txt'
+[3.606s] package init file 'exomy/__init__.py' not found (or not a regular file)
+[3.607s] reading manifest file '../build/exomy/exomy.egg-info/SOURCES.txt'
+[3.608s] writing manifest file '../build/exomy/exomy.egg-info/SOURCES.txt'
+[3.608s] running build
+[3.608s] running build_py
+[3.609s] creating /home/xavier/ExoMy_Software/build/exomy/build
+[3.610s] creating /home/xavier/ExoMy_Software/build/exomy/build/lib
+[3.610s] creating /home/xavier/ExoMy_Software/build/exomy/build/lib/exomy
+[3.611s] copying exomy/Camera_node.py -> /home/xavier/ExoMy_Software/build/exomy/build/lib/exomy
+[3.611s] copying exomy/gamepad_parser_node_backup.py -> /home/xavier/ExoMy_Software/build/exomy/build/lib/exomy
+[3.612s] copying exomy/Kinematics_node.py -> /home/xavier/ExoMy_Software/build/exomy/build/lib/exomy
+[3.612s] copying exomy/motor_node.py -> /home/xavier/ExoMy_Software/build/exomy/build/lib/exomy
+[3.613s] copying exomy/RLModel_node.py -> /home/xavier/ExoMy_Software/build/exomy/build/lib/exomy
+[3.613s] copying exomy/gamepad_parser_node.py -> /home/xavier/ExoMy_Software/build/exomy/build/lib/exomy
+[3.614s] running install
+[3.617s] running install_lib
+[3.622s] copying /home/xavier/ExoMy_Software/build/exomy/build/lib/exomy/Camera_node.py -> /home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages/exomy
+[3.624s] copying /home/xavier/ExoMy_Software/build/exomy/build/lib/exomy/gamepad_parser_node_backup.py -> /home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages/exomy
+[3.624s] copying /home/xavier/ExoMy_Software/build/exomy/build/lib/exomy/Kinematics_node.py -> /home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages/exomy
+[3.625s] copying /home/xavier/ExoMy_Software/build/exomy/build/lib/exomy/motor_node.py -> /home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages/exomy
+[3.625s] copying /home/xavier/ExoMy_Software/build/exomy/build/lib/exomy/RLModel_node.py -> /home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages/exomy
+[3.626s] copying /home/xavier/ExoMy_Software/build/exomy/build/lib/exomy/gamepad_parser_node.py -> /home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages/exomy
+[3.626s] byte-compiling /home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages/exomy/Camera_node.py to Camera_node.cpython-38.pyc
+[3.634s] running install_data
+[3.638s] copying resource/exomy -> /home/xavier/ExoMy_Software/install/exomy/share/ament_index/resource_index/packages
+[3.639s] copying package.xml -> /home/xavier/ExoMy_Software/install/exomy/share/exomy
+[3.639s] copying launch/exomy.launch.py -> /home/xavier/ExoMy_Software/install/exomy/share/exomy
+[3.639s] copying config/exomy.yaml -> /home/xavier/ExoMy_Software/install/exomy/share/exomy
+[3.640s] running install_egg_info
+[3.645s] removing '/home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages/exomy-2.0.0-py3.8.egg-info' (and everything under it)
+[3.647s] Copying ../build/exomy/exomy.egg-info to /home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages/exomy-2.0.0-py3.8.egg-info
+[3.651s] running install_scripts
+[3.717s] Installing Camera_node script to /home/xavier/ExoMy_Software/install/exomy/lib/exomy
+[3.718s] Installing Kinematics_node script to /home/xavier/ExoMy_Software/install/exomy/lib/exomy
+[3.719s] Installing RLModel_node script to /home/xavier/ExoMy_Software/install/exomy/lib/exomy
+[3.720s] Installing gamepad_parser_node script to /home/xavier/ExoMy_Software/install/exomy/lib/exomy
+[3.721s] Installing motor_node script to /home/xavier/ExoMy_Software/install/exomy/lib/exomy
+[3.723s] writing list of installed files to '/home/xavier/ExoMy_Software/build/exomy/install.log'
+[3.812s] Invoked command in '/home/xavier/ExoMy_Software/exomy' returned '0': CMAKE_PREFIX_PATH=/home/xavier/ExoMy_Software/install/exomy_msgs:/home/xavier/ExoMy_Software/install/realsense2_description:/home/xavier/ExoMy_Software/install/realsense2_camera:/home/xavier/ExoMy_Software/install/realsense2_camera_msgs LD_LIBRARY_PATH=/home/xavier/ExoMy_Software/install/exomy_msgs/lib:/home/xavier/ExoMy_Software/install/realsense2_camera/lib:/home/xavier/ExoMy_Software/install/realsense2_camera_msgs/lib:/usr/local/cuda-11.4/lib64:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64 PYTHONPATH=/home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages:/home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages:/home/xavier/ExoMy_Software/install/realsense2_camera_msgs/lib/python3.8/site-packages:/home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages:/home/xavier/sensor_msgs_py/install/sensor_msgs_py/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../build/exomy build --build-base /home/xavier/ExoMy_Software/build/exomy/build install --prefix /home/xavier/ExoMy_Software/install/exomy --record /home/xavier/ExoMy_Software/build/exomy/install.log --single-version-externally-managed

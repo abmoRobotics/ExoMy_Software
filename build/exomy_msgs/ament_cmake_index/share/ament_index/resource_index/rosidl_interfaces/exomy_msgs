@@ -1,0 +1,6 @@
+msg/Actions.idl
+msg/Actions.msg
+msg/CameraData.idl
+msg/CameraData.msg
+msg/MotorCommands.idl
+msg/MotorCommands.msg

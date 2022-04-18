@@ -53,14 +53,18 @@ class Camera_node(Node):
         pc = tf_img = np.delete(pc, 3, 1)
         pc = np.insert(pc, pc.shape[1], 1, axis=1)
         #self.get_logger().info('\tPC point: {}'.format(pc[0]))
-        points, Robotpos, framevel, frameaccel  = self.camera.callback(pc)
+        points, Robotpos, RobotVel, RobotAcc, rot, ang_vel, ang_acc  = self.camera.callback(pc)
         
 
+        dataMsg = CameraData()
+        dataMsg.robot_pos = Robotpos
+        dataMsg.robot_vel = RobotVel
+        dataMsg.robot_acc = RobotAcc
+        self.pub.publish(dataMsg)
 
-
-
-
-        self.get_logger().info('\t{} Robot Position'.format(Robotpos))
+        self.get_logger().info('\tRobot Rotation: {}'.format(rot))
+        self.get_logger().info('\tRobot Angular Velocity: {}'.format(ang_vel))
+        self.get_logger().info('\tRobot Angular Acceleration: {}'.format(ang_acc))
         PointCloudTrans = PointCloud()
         for i in range(len(points)):
             point = Point32()
@@ -70,8 +74,8 @@ class Camera_node(Node):
             PointCloudTrans.points.append(point)
         PointCloudTrans.header = data.header
         self.pointpub.publish(PointCloudTrans)
-        self.get_logger().info('\tMin: {}'.format(min(points[:,2])))
-        self.get_logger().info('\tMax: {}'.format(max(points[:,2])))
+        #self.get_logger().info('\tMin: {}'.format(min(points[:,2])))
+        #self.get_logger().info('\tMax: {}'.format(max(points[:,2])))
 
 
 def main(args=None):

@@ -1,0 +1,209 @@
+[0.479s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.480s] DEBUG:colcon:Parsed command line arguments: Namespace(allow_overriding=[], ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffff9e1042e0>>, merge_install=False, metas=['./colcon.meta'], packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=None, packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=8, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffff9e1042e0>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0xffff9e104820>)
+[0.497s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.497s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.498s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.498s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.498s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.498s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.498s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/xavier/ExoMy_Software'
+[0.499s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.499s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.500s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.501s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.540s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.540s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.540s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.541s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.541s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.541s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.541s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.542s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.542s] Level 1:colcon.colcon_core.package_identification:_identify(exomy) by extensions ['ignore', 'ignore_ament_install']
+[0.542s] Level 1:colcon.colcon_core.package_identification:_identify(exomy) by extension 'ignore'
+[0.543s] Level 1:colcon.colcon_core.package_identification:_identify(exomy) by extension 'ignore_ament_install'
+[0.543s] Level 1:colcon.colcon_core.package_identification:_identify(exomy) by extensions ['colcon_pkg']
+[0.543s] Level 1:colcon.colcon_core.package_identification:_identify(exomy) by extension 'colcon_pkg'
+[0.543s] Level 1:colcon.colcon_core.package_identification:_identify(exomy) by extensions ['colcon_meta']
+[0.543s] Level 1:colcon.colcon_core.package_identification:_identify(exomy) by extension 'colcon_meta'
+[0.543s] Level 1:colcon.colcon_core.package_identification:_identify(exomy) by extensions ['ros']
+[0.543s] Level 1:colcon.colcon_core.package_identification:_identify(exomy) by extension 'ros'
+[0.551s] DEBUG:colcon.colcon_core.package_identification:Package 'exomy' with type 'ros.ament_python' and name 'exomy'
+[0.551s] Level 1:colcon.colcon_core.package_identification:_identify(exomy_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.552s] Level 1:colcon.colcon_core.package_identification:_identify(exomy_msgs) by extension 'ignore'
+[0.552s] Level 1:colcon.colcon_core.package_identification:_identify(exomy_msgs) by extension 'ignore_ament_install'
+[0.552s] Level 1:colcon.colcon_core.package_identification:_identify(exomy_msgs) by extensions ['colcon_pkg']
+[0.552s] Level 1:colcon.colcon_core.package_identification:_identify(exomy_msgs) by extension 'colcon_pkg'
+[0.553s] Level 1:colcon.colcon_core.package_identification:_identify(exomy_msgs) by extensions ['colcon_meta']
+[0.553s] Level 1:colcon.colcon_core.package_identification:_identify(exomy_msgs) by extension 'colcon_meta'
+[0.553s] Level 1:colcon.colcon_core.package_identification:_identify(exomy_msgs) by extensions ['ros']
+[0.553s] Level 1:colcon.colcon_core.package_identification:_identify(exomy_msgs) by extension 'ros'
+[0.555s] DEBUG:colcon.colcon_core.package_identification:Package 'exomy_msgs' with type 'ros.ament_cmake' and name 'exomy_msgs'
+[0.556s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.556s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.556s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.557s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.557s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.557s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.557s] Level 1:colcon.colcon_core.package_identification:_identify(realsense-beta) by extensions ['ignore', 'ignore_ament_install']
+[0.558s] Level 1:colcon.colcon_core.package_identification:_identify(realsense-beta) by extension 'ignore'
+[0.558s] Level 1:colcon.colcon_core.package_identification:_identify(realsense-beta) by extension 'ignore_ament_install'
+[0.558s] Level 1:colcon.colcon_core.package_identification:_identify(realsense-beta) by extensions ['colcon_pkg']
+[0.558s] Level 1:colcon.colcon_core.package_identification:_identify(realsense-beta) by extension 'colcon_pkg'
+[0.558s] Level 1:colcon.colcon_core.package_identification:_identify(realsense-beta) by extensions ['colcon_meta']
+[0.559s] Level 1:colcon.colcon_core.package_identification:_identify(realsense-beta) by extension 'colcon_meta'
+[0.559s] Level 1:colcon.colcon_core.package_identification:_identify(realsense-beta) by extensions ['ros']
+[0.559s] Level 1:colcon.colcon_core.package_identification:_identify(realsense-beta) by extension 'ros'
+[0.559s] Level 1:colcon.colcon_core.package_identification:_identify(realsense-beta) by extensions ['cmake', 'python']
+[0.559s] Level 1:colcon.colcon_core.package_identification:_identify(realsense-beta) by extension 'cmake'
+[0.559s] Level 1:colcon.colcon_core.package_identification:_identify(realsense-beta) by extension 'python'
+[0.560s] Level 1:colcon.colcon_core.package_identification:_identify(realsense-beta) by extensions ['python_setup_py']
+[0.560s] Level 1:colcon.colcon_core.package_identification:_identify(realsense-beta) by extension 'python_setup_py'
+[0.560s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.560s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.560s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.560s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.560s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.618s] Level 5:colcon.colcon_core.verb:set package 'exomy_msgs' build argument 'cmake_args' from command line to 'None'
+[0.619s] Level 5:colcon.colcon_core.verb:set package 'exomy_msgs' build argument 'cmake_target' from command line to 'None'
+[0.619s] Level 5:colcon.colcon_core.verb:set package 'exomy_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.619s] Level 5:colcon.colcon_core.verb:set package 'exomy_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.619s] Level 5:colcon.colcon_core.verb:set package 'exomy_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.619s] Level 5:colcon.colcon_core.verb:set package 'exomy_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.619s] Level 5:colcon.colcon_core.verb:set package 'exomy_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.620s] Level 5:colcon.colcon_core.verb:set package 'exomy_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.620s] Level 5:colcon.colcon_core.verb:set package 'exomy_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.620s] DEBUG:colcon.colcon_core.verb:Building package 'exomy_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/xavier/ExoMy_Software/build/exomy_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/xavier/ExoMy_Software/install/exomy_msgs', 'merge_install': False, 'path': '/home/xavier/ExoMy_Software/exomy_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.622s] Level 5:colcon.colcon_core.verb:set package 'exomy' build argument 'cmake_args' from command line to 'None'
+[0.623s] Level 5:colcon.colcon_core.verb:set package 'exomy' build argument 'cmake_target' from command line to 'None'
+[0.623s] Level 5:colcon.colcon_core.verb:set package 'exomy' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.623s] Level 5:colcon.colcon_core.verb:set package 'exomy' build argument 'cmake_clean_cache' from command line to 'False'
+[0.623s] Level 5:colcon.colcon_core.verb:set package 'exomy' build argument 'cmake_clean_first' from command line to 'False'
+[0.623s] Level 5:colcon.colcon_core.verb:set package 'exomy' build argument 'cmake_force_configure' from command line to 'False'
+[0.623s] Level 5:colcon.colcon_core.verb:set package 'exomy' build argument 'ament_cmake_args' from command line to 'None'
+[0.623s] Level 5:colcon.colcon_core.verb:set package 'exomy' build argument 'catkin_cmake_args' from command line to 'None'
+[0.623s] Level 5:colcon.colcon_core.verb:set package 'exomy' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.624s] DEBUG:colcon.colcon_core.verb:Building package 'exomy' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/xavier/ExoMy_Software/build/exomy', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/xavier/ExoMy_Software/install/exomy', 'merge_install': False, 'path': '/home/xavier/ExoMy_Software/exomy', 'symlink_install': False, 'test_result_base': None}
+[0.638s] WARNING:colcon.colcon_core.verb:Some selected packages are already built in one or more underlay workspaces:
+	'exomy_msgs' is in: /home/xavier/ExoMy_Software/install/exomy_msgs
+	'exomy' is in: /home/xavier/ExoMy_Software/install/exomy
+If a package in a merged underlay workspace is overridden and it installs headers, then all packages in the overlay must sort their include directories by workspace order. Failure to do so may result in build failures or undefined behavior at run time.
+If the overridden package is used by another package in any underlay, then the overriding package in the overlay must be API and ABI compatible or undefined behavior at run time may occur.
+
+If you understand the risks and want to override a package anyways, add the following to the command line:
+	--allow-overriding exomy exomy_msgs
+
+This may be promoted to an error in a future release of colcon-core.
+[0.640s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.646s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.647s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/xavier/ExoMy_Software/exomy_msgs' with build type 'ament_cmake'
+[0.648s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/xavier/ExoMy_Software/exomy_msgs'
+[0.663s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.664s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.664s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.713s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/xavier/ExoMy_Software/build/exomy_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/xavier/sensor_msgs_py/install/sensor_msgs_py:/home/xavier/ExoMy_Software/install/exomy:/opt/ros/foxy /usr/bin/cmake --build /home/xavier/ExoMy_Software/build/exomy_msgs -- -j8 -l8
+[1.964s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/xavier/ExoMy_Software/build/exomy_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/xavier/sensor_msgs_py/install/sensor_msgs_py:/home/xavier/ExoMy_Software/install/exomy:/opt/ros/foxy /usr/bin/cmake --build /home/xavier/ExoMy_Software/build/exomy_msgs -- -j8 -l8
+[2.288s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/xavier/ExoMy_Software/build/exomy_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/xavier/sensor_msgs_py/install/sensor_msgs_py:/home/xavier/ExoMy_Software/install/exomy:/opt/ros/foxy /usr/bin/cmake --install /home/xavier/ExoMy_Software/build/exomy_msgs
+[2.684s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(exomy_msgs)
+[2.688s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/xavier/ExoMy_Software/build/exomy_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/xavier/sensor_msgs_py/install/sensor_msgs_py:/home/xavier/ExoMy_Software/install/exomy:/opt/ros/foxy /usr/bin/cmake --install /home/xavier/ExoMy_Software/build/exomy_msgs
+[2.702s] Level 1:colcon.colcon_core.environment:checking '/home/xavier/ExoMy_Software/install/exomy_msgs' for CMake module files
+[2.705s] Level 1:colcon.colcon_core.environment:checking '/home/xavier/ExoMy_Software/install/exomy_msgs' for CMake config files
+[2.706s] Level 1:colcon.colcon_core.shell:create_environment_hook('exomy_msgs', 'cmake_prefix_path')
+[2.708s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/hook/cmake_prefix_path.ps1'
+[2.711s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/hook/cmake_prefix_path.dsv'
+[2.714s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/hook/cmake_prefix_path.sh'
+[2.717s] Level 1:colcon.colcon_core.environment:checking '/home/xavier/ExoMy_Software/install/exomy_msgs/lib'
+[2.718s] Level 1:colcon.colcon_core.shell:create_environment_hook('exomy_msgs', 'ld_library_path_lib')
+[2.720s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/hook/ld_library_path_lib.ps1'
+[2.721s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/hook/ld_library_path_lib.dsv'
+[2.723s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/hook/ld_library_path_lib.sh'
+[2.724s] Level 1:colcon.colcon_core.environment:checking '/home/xavier/ExoMy_Software/install/exomy_msgs/bin'
+[2.725s] Level 1:colcon.colcon_core.environment:checking '/home/xavier/ExoMy_Software/install/exomy_msgs/lib/pkgconfig/exomy_msgs.pc'
+[2.725s] Level 1:colcon.colcon_core.environment:checking '/home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages'
+[2.725s] Level 1:colcon.colcon_core.shell:create_environment_hook('exomy_msgs', 'pythonpath')
+[2.727s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/hook/pythonpath.ps1'
+[2.729s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/hook/pythonpath.dsv'
+[2.730s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/hook/pythonpath.sh'
+[2.733s] INFO:colcon.colcon_core.shell:Creating package script '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/package.ps1'
+[2.736s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/package.dsv'
+[2.738s] INFO:colcon.colcon_core.shell:Creating package script '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/package.sh'
+[2.742s] INFO:colcon.colcon_core.shell:Creating package script '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/package.bash'
+[2.744s] INFO:colcon.colcon_core.shell:Creating package script '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/package.zsh'
+[2.747s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/xavier/ExoMy_Software/install/exomy_msgs/share/colcon-core/packages/exomy_msgs)
+[3.030s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(exomy_msgs)
+[3.033s] Level 1:colcon.colcon_core.environment:checking '/home/xavier/ExoMy_Software/install/exomy_msgs' for CMake module files
+[3.036s] Level 1:colcon.colcon_core.environment:checking '/home/xavier/ExoMy_Software/install/exomy_msgs' for CMake config files
+[3.038s] Level 1:colcon.colcon_core.shell:create_environment_hook('exomy_msgs', 'cmake_prefix_path')
+[3.040s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/hook/cmake_prefix_path.ps1'
+[3.042s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/hook/cmake_prefix_path.dsv'
+[3.044s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/hook/cmake_prefix_path.sh'
+[3.047s] Level 1:colcon.colcon_core.environment:checking '/home/xavier/ExoMy_Software/install/exomy_msgs/lib'
+[3.047s] Level 1:colcon.colcon_core.shell:create_environment_hook('exomy_msgs', 'ld_library_path_lib')
+[3.049s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/hook/ld_library_path_lib.ps1'
+[3.050s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/hook/ld_library_path_lib.dsv'
+[3.052s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/hook/ld_library_path_lib.sh'
+[3.053s] Level 1:colcon.colcon_core.environment:checking '/home/xavier/ExoMy_Software/install/exomy_msgs/bin'
+[3.053s] Level 1:colcon.colcon_core.environment:checking '/home/xavier/ExoMy_Software/install/exomy_msgs/lib/pkgconfig/exomy_msgs.pc'
+[3.054s] Level 1:colcon.colcon_core.environment:checking '/home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages'
+[3.054s] Level 1:colcon.colcon_core.shell:create_environment_hook('exomy_msgs', 'pythonpath')
+[3.056s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/hook/pythonpath.ps1'
+[3.059s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/hook/pythonpath.dsv'
+[3.061s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/hook/pythonpath.sh'
+[3.065s] INFO:colcon.colcon_core.shell:Creating package script '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/package.ps1'
+[3.067s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/package.dsv'
+[3.070s] INFO:colcon.colcon_core.shell:Creating package script '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/package.sh'
+[3.071s] INFO:colcon.colcon_core.shell:Creating package script '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/package.bash'
+[3.073s] INFO:colcon.colcon_core.shell:Creating package script '/home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/package.zsh'
+[3.074s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/xavier/ExoMy_Software/install/exomy_msgs/share/colcon-core/packages/exomy_msgs)
+[3.076s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/xavier/ExoMy_Software/exomy' with build type 'ament_python'
+[3.077s] Level 1:colcon.colcon_core.shell:create_environment_hook('exomy', 'ament_prefix_path')
+[3.080s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xavier/ExoMy_Software/install/exomy/share/exomy/hook/ament_prefix_path.ps1'
+[3.082s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/xavier/ExoMy_Software/install/exomy/share/exomy/hook/ament_prefix_path.dsv'
+[3.084s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xavier/ExoMy_Software/install/exomy/share/exomy/hook/ament_prefix_path.sh'
+[3.088s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.088s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[3.882s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/xavier/ExoMy_Software/exomy'
+[3.888s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.888s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.453s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/xavier/ExoMy_Software/exomy': LD_LIBRARY_PATH=/home/xavier/ExoMy_Software/install/exomy_msgs/lib:/usr/local/cuda-11.4/lib64:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64 PYTHONPATH=/home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages:/home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages:/home/xavier/sensor_msgs_py/install/sensor_msgs_py/lib/python3.8/site-packages:/home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../build/exomy build --build-base /home/xavier/ExoMy_Software/build/exomy/build install --prefix /home/xavier/ExoMy_Software/install/exomy --record /home/xavier/ExoMy_Software/build/exomy/install.log --single-version-externally-managed
+[6.465s] Level 1:colcon.colcon_core.environment:checking '/home/xavier/ExoMy_Software/install/exomy' for CMake module files
+[6.467s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/xavier/ExoMy_Software/exomy' returned '0': LD_LIBRARY_PATH=/home/xavier/ExoMy_Software/install/exomy_msgs/lib:/usr/local/cuda-11.4/lib64:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64 PYTHONPATH=/home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages:/home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages:/home/xavier/sensor_msgs_py/install/sensor_msgs_py/lib/python3.8/site-packages:/home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/python3 setup.py egg_info --egg-base ../build/exomy build --build-base /home/xavier/ExoMy_Software/build/exomy/build install --prefix /home/xavier/ExoMy_Software/install/exomy --record /home/xavier/ExoMy_Software/build/exomy/install.log --single-version-externally-managed
+[6.468s] Level 1:colcon.colcon_core.environment:checking '/home/xavier/ExoMy_Software/install/exomy' for CMake config files
+[6.471s] Level 1:colcon.colcon_core.environment:checking '/home/xavier/ExoMy_Software/install/exomy/lib'
+[6.471s] Level 1:colcon.colcon_core.environment:checking '/home/xavier/ExoMy_Software/install/exomy/bin'
+[6.471s] Level 1:colcon.colcon_core.environment:checking '/home/xavier/ExoMy_Software/install/exomy/lib/pkgconfig/exomy.pc'
+[6.472s] Level 1:colcon.colcon_core.environment:checking '/home/xavier/ExoMy_Software/install/exomy/lib/python3.8/site-packages'
+[6.472s] Level 1:colcon.colcon_core.shell:create_environment_hook('exomy', 'pythonpath')
+[6.474s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xavier/ExoMy_Software/install/exomy/share/exomy/hook/pythonpath.ps1'
+[6.477s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/xavier/ExoMy_Software/install/exomy/share/exomy/hook/pythonpath.dsv'
+[6.478s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/xavier/ExoMy_Software/install/exomy/share/exomy/hook/pythonpath.sh'
+[6.480s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(exomy)
+[6.482s] INFO:colcon.colcon_core.shell:Creating package script '/home/xavier/ExoMy_Software/install/exomy/share/exomy/package.ps1'
+[6.484s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/xavier/ExoMy_Software/install/exomy/share/exomy/package.dsv'
+[6.486s] INFO:colcon.colcon_core.shell:Creating package script '/home/xavier/ExoMy_Software/install/exomy/share/exomy/package.sh'
+[6.489s] INFO:colcon.colcon_core.shell:Creating package script '/home/xavier/ExoMy_Software/install/exomy/share/exomy/package.bash'
+[6.491s] INFO:colcon.colcon_core.shell:Creating package script '/home/xavier/ExoMy_Software/install/exomy/share/exomy/package.zsh'
+[6.492s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/xavier/ExoMy_Software/install/exomy/share/colcon-core/packages/exomy)
+[6.494s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[6.497s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[6.497s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[6.498s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[6.519s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[6.519s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[6.519s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[6.567s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[6.570s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/xavier/ExoMy_Software/install/local_setup.ps1'
+[6.574s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/xavier/ExoMy_Software/install/_local_setup_util_ps1.py'
+[6.579s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/xavier/ExoMy_Software/install/setup.ps1'
+[6.584s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/xavier/ExoMy_Software/install/local_setup.sh'
+[6.586s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/xavier/ExoMy_Software/install/_local_setup_util_sh.py'
+[6.589s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/xavier/ExoMy_Software/install/setup.sh'
+[6.593s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/xavier/ExoMy_Software/install/local_setup.bash'
+[6.595s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/xavier/ExoMy_Software/install/setup.bash'
+[6.600s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/xavier/ExoMy_Software/install/local_setup.zsh'
+[6.601s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/xavier/ExoMy_Software/install/setup.zsh'

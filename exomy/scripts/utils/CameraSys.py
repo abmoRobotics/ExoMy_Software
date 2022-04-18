@@ -28,13 +28,15 @@ class Cameras:
         pos = data.translation
         vel = data.velocity
         acc = data.acceleration
-        RobotPos = np.array([pos.x * -1, pos.z, pos.y])
-        #RobotPos[0] = pos.x * -1
-        #RobotPos[1] = pos.z
-        #RobotPos[2] = pos.y
+        rot = data.rotation
+        ang_vel = data.angular_velocity
+        ang_acc = data.angular_acceleration
+        RobotPos = [pos.x * -1, pos.z, pos.y]
+        RobotVel = [vel.x * -1, vel.z, vel.y]
+        RobotAcc = [acc.x * -1, acc.z, acc.y]
 
         new_cloud = self.TransCloud(pointcloud)
-        return new_cloud, RobotPos, vel, acc
+        return new_cloud, RobotPos, RobotVel, RobotAcc, rot, ang_vel, ang_acc
 
 
 

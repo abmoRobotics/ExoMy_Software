@@ -1,0 +1,8 @@
+{
+  "package_name": "exomy_msgs",
+  "non_idl_tuples": [
+    "/home/xavier/ExoMy_Software/exomy_msgs:msg/Actions.msg",
+    "/home/xavier/ExoMy_Software/exomy_msgs:msg/CameraData.msg",
+    "/home/xavier/ExoMy_Software/exomy_msgs:msg/MotorCommands.msg"
+  ]
+}

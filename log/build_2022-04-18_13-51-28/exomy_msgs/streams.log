@@ -1,0 +1,264 @@
+[0.075s] Invoking command in '/home/xavier/ExoMy_Software/build/exomy_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/xavier/ExoMy_Software/install/exomy:/home/xavier/sensor_msgs_py/install/sensor_msgs_py:/opt/ros/foxy /usr/bin/cmake /home/xavier/ExoMy_Software/exomy_msgs -DCMAKE_INSTALL_PREFIX=/home/xavier/ExoMy_Software/install/exomy_msgs
+[0.375s] -- The C compiler identification is GNU 9.4.0
+[0.655s] -- The CXX compiler identification is GNU 9.4.0
+[0.678s] -- Check for working C compiler: /usr/bin/cc
+[0.998s] -- Check for working C compiler: /usr/bin/cc -- works
+[1.003s] -- Detecting C compiler ABI info
+[1.315s] -- Detecting C compiler ABI info - done
+[1.363s] -- Detecting C compile features
+[1.364s] -- Detecting C compile features - done
+[1.375s] -- Check for working CXX compiler: /usr/bin/c++
+[1.785s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[1.792s] -- Detecting CXX compiler ABI info
+[2.193s] -- Detecting CXX compiler ABI info - done
+[2.241s] -- Detecting CXX compile features
+[2.244s] -- Detecting CXX compile features - done
+[2.253s] -- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)
+[2.634s] -- Found PythonInterp: /home/xavier/.pyenv/shims/python3 (found suitable version "3.8.10", minimum required is "3") 
+[2.635s] -- Using PYTHON_EXECUTABLE: /home/xavier/.pyenv/shims/python3
+[3.671s] -- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)
+[3.686s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.713s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[4.180s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[4.302s] -- Found FastRTPS: /opt/ros/foxy/include  
+[4.602s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[4.704s] -- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)
+[5.297s] -- Found PythonInterp: /home/xavier/.pyenv/shims/python3 (found version "3.8.10") 
+[6.293s] -- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)
+[6.677s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[6.710s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[7.101s] -- Found PythonInterp: /home/xavier/.pyenv/shims/python3 (found suitable version "3.8.10", minimum required is "3.5") 
+[7.108s] -- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)
+[7.481s] -- Found PythonLibs: /usr/lib/aarch64-linux-gnu/libpython3.8.so (found suitable version "3.8.10", minimum required is "3.5") 
+[7.482s] -- Using PYTHON_EXECUTABLE: /home/xavier/.pyenv/shims/python3
+[7.482s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8
+[7.483s] -- Using PYTHON_LIBRARIES: /usr/lib/aarch64-linux-gnu/libpython3.8.so
+[7.794s] -- Found PythonExtra: .so  
+[8.279s] -- Configuring done
+[8.453s] -- Generating done
+[8.466s] -- Build files have been written to: /home/xavier/ExoMy_Software/build/exomy_msgs
+[8.501s] Invoked command in '/home/xavier/ExoMy_Software/build/exomy_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/xavier/ExoMy_Software/install/exomy:/home/xavier/sensor_msgs_py/install/sensor_msgs_py:/opt/ros/foxy /usr/bin/cmake /home/xavier/ExoMy_Software/exomy_msgs -DCMAKE_INSTALL_PREFIX=/home/xavier/ExoMy_Software/install/exomy_msgs
+[8.508s] Invoking command in '/home/xavier/ExoMy_Software/build/exomy_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/xavier/ExoMy_Software/install/exomy:/home/xavier/sensor_msgs_py/install/sensor_msgs_py:/opt/ros/foxy /usr/bin/cmake --build /home/xavier/ExoMy_Software/build/exomy_msgs -- -j8 -l8
+[8.676s] [35m[1mScanning dependencies of target exomy_msgs__cpp[0m
+[8.692s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[8.727s] [  4%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[10.244s] [35m[1mScanning dependencies of target exomy_msgs__rosidl_generator_c[0m
+[10.300s] [  6%] [32mBuilding C object CMakeFiles/exomy_msgs__rosidl_generator_c.dir/rosidl_generator_c/exomy_msgs/msg/detail/motor_commands__functions.c.o[0m
+[10.302s] [  8%] [32mBuilding C object CMakeFiles/exomy_msgs__rosidl_generator_c.dir/rosidl_generator_c/exomy_msgs/msg/detail/actions__functions.c.o[0m
+[10.311s] [  8%] Built target exomy_msgs__cpp
+[10.313s] [ 10%] [32mBuilding C object CMakeFiles/exomy_msgs__rosidl_generator_c.dir/rosidl_generator_c/exomy_msgs/msg/detail/camera_data__functions.c.o[0m
+[10.360s] [ 12%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[10.381s] [ 14%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[10.392s] [ 17%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[10.633s] [ 19%] [32m[1mLinking C shared library libexomy_msgs__rosidl_generator_c.so[0m
+[10.831s] [ 19%] Built target exomy_msgs__rosidl_generator_c
+[10.879s] [ 21%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[10.885s] [ 23%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[11.707s] [35m[1mScanning dependencies of target exomy_msgs__rosidl_typesupport_cpp[0m
+[11.781s] [ 25%] [32mBuilding CXX object CMakeFiles/exomy_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/exomy_msgs/msg/actions__type_support.cpp.o[0m
+[11.810s] [ 27%] [32mBuilding CXX object CMakeFiles/exomy_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/exomy_msgs/msg/motor_commands__type_support.cpp.o[0m
+[11.832s] [ 29%] [32mBuilding CXX object CMakeFiles/exomy_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/exomy_msgs/msg/camera_data__type_support.cpp.o[0m
+[11.928s] [35m[1mScanning dependencies of target exomy_msgs__rosidl_typesupport_introspection_cpp[0m
+[12.001s] [ 31%] [32mBuilding CXX object CMakeFiles/exomy_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/exomy_msgs/msg/detail/camera_data__type_support.cpp.o[0m
+[12.018s] [ 34%] [32mBuilding CXX object CMakeFiles/exomy_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/exomy_msgs/msg/detail/actions__type_support.cpp.o[0m
+[12.412s] [35m[1mScanning dependencies of target exomy_msgs__rosidl_typesupport_fastrtps_cpp[0m
+[12.600s] [ 36%] [32mBuilding CXX object CMakeFiles/exomy_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/exomy_msgs/msg/detail/dds_fastrtps/actions__type_support.cpp.o[0m
+[12.632s] [35m[1mScanning dependencies of target exomy_msgs__rosidl_typesupport_c[0m
+[12.711s] [35m[1mScanning dependencies of target exomy_msgs__rosidl_typesupport_introspection_c[0m
+[12.764s] [ 38%] [32mBuilding CXX object CMakeFiles/exomy_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/exomy_msgs/msg/actions__type_support.cpp.o[0m
+[12.844s] [ 40%] [32mBuilding C object CMakeFiles/exomy_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/exomy_msgs/msg/detail/actions__type_support.c.o[0m
+[13.120s] [ 42%] [32mBuilding CXX object CMakeFiles/exomy_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/exomy_msgs/msg/camera_data__type_support.cpp.o[0m
+[13.209s] [ 44%] [32mBuilding C object CMakeFiles/exomy_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/exomy_msgs/msg/detail/camera_data__type_support.c.o[0m
+[13.473s] [ 46%] [32mBuilding CXX object CMakeFiles/exomy_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/exomy_msgs/msg/motor_commands__type_support.cpp.o[0m
+[13.482s] [ 48%] [32mBuilding C object CMakeFiles/exomy_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/exomy_msgs/msg/detail/motor_commands__type_support.c.o[0m
+[13.625s] [ 51%] [32mBuilding CXX object CMakeFiles/exomy_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/exomy_msgs/msg/detail/motor_commands__type_support.cpp.o[0m
+[13.702s] [ 53%] [32mBuilding CXX object CMakeFiles/exomy_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/exomy_msgs/msg/detail/dds_fastrtps/camera_data__type_support.cpp.o[0m
+[13.747s] [ 55%] [32m[1mLinking CXX shared library libexomy_msgs__rosidl_typesupport_c.so[0m
+[13.753s] [ 57%] [32mBuilding CXX object CMakeFiles/exomy_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/exomy_msgs/msg/detail/dds_fastrtps/motor_commands__type_support.cpp.o[0m
+[13.779s] [ 59%] [32m[1mLinking CXX shared library libexomy_msgs__rosidl_typesupport_cpp.so[0m
+[13.822s] [ 61%] [32m[1mLinking C shared library libexomy_msgs__rosidl_typesupport_introspection_c.so[0m
+[13.989s] [ 61%] Built target exomy_msgs__rosidl_typesupport_c
+[14.013s] [ 61%] Built target exomy_msgs__rosidl_typesupport_cpp
+[14.050s] [ 61%] Built target exomy_msgs__rosidl_typesupport_introspection_c
+[15.057s] [ 63%] [32m[1mLinking CXX shared library libexomy_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[15.302s] [ 63%] Built target exomy_msgs__rosidl_typesupport_introspection_cpp
+[15.669s] [ 65%] [32m[1mLinking CXX shared library libexomy_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[15.935s] [ 65%] Built target exomy_msgs__rosidl_typesupport_fastrtps_cpp
+[15.975s] [ 68%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[17.130s] [35m[1mScanning dependencies of target exomy_msgs__rosidl_typesupport_fastrtps_c[0m
+[17.195s] [ 72%] [32mBuilding CXX object CMakeFiles/exomy_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/exomy_msgs/msg/detail/motor_commands__type_support_c.cpp.o[0m
+[17.195s] [ 72%] [32mBuilding CXX object CMakeFiles/exomy_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/exomy_msgs/msg/detail/camera_data__type_support_c.cpp.o[0m
+[17.208s] [ 74%] [32mBuilding CXX object CMakeFiles/exomy_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/exomy_msgs/msg/detail/actions__type_support_c.cpp.o[0m
+[18.624s] [ 76%] [32m[1mLinking CXX shared library libexomy_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[18.884s] [ 76%] Built target exomy_msgs__rosidl_typesupport_fastrtps_c
+[18.941s] [35m[1mScanning dependencies of target exomy_msgs[0m
+[18.984s] [ 76%] Built target exomy_msgs
+[19.025s] [35m[1mScanning dependencies of target exomy_msgs__py[0m
+[19.063s] [ 78%] [34m[1mGenerating Python code for ROS interfaces[0m
+[23.443s] [ 78%] Built target exomy_msgs__py
+[23.480s] [35m[1mScanning dependencies of target exomy_msgs__python[0m
+[23.566s] [ 80%] [32mBuilding C object CMakeFiles/exomy_msgs__python.dir/rosidl_generator_py/exomy_msgs/msg/_actions_s.c.o[0m
+[23.904s] [ 82%] [32mBuilding C object CMakeFiles/exomy_msgs__python.dir/rosidl_generator_py/exomy_msgs/msg/_motor_commands_s.c.o[0m
+[24.286s] [ 85%] [32mBuilding C object CMakeFiles/exomy_msgs__python.dir/rosidl_generator_py/exomy_msgs/msg/_camera_data_s.c.o[0m
+[24.650s] [ 87%] [32m[1mLinking C shared library rosidl_generator_py/exomy_msgs/libexomy_msgs__python.so[0m
+[24.799s] [ 87%] Built target exomy_msgs__python
+[24.840s] [35m[1mScanning dependencies of target exomy_msgs__rosidl_typesupport_c__pyext[0m
+[24.906s] [ 89%] [32mBuilding C object CMakeFiles/exomy_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/exomy_msgs/_exomy_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[25.238s] [ 91%] [32m[1mLinking C shared library rosidl_generator_py/exomy_msgs/exomy_msgs_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so[0m
+[25.372s] [ 91%] Built target exomy_msgs__rosidl_typesupport_c__pyext
+[25.411s] [35m[1mScanning dependencies of target exomy_msgs__rosidl_typesupport_fastrtps_c__pyext[0m
+[25.496s] [ 93%] [32mBuilding C object CMakeFiles/exomy_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/exomy_msgs/_exomy_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[25.846s] [ 95%] [32m[1mLinking CXX shared library rosidl_generator_py/exomy_msgs/exomy_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so[0m
+[26.054s] [ 95%] Built target exomy_msgs__rosidl_typesupport_fastrtps_c__pyext
+[26.094s] [35m[1mScanning dependencies of target exomy_msgs__rosidl_typesupport_introspection_c__pyext[0m
+[26.173s] [ 97%] [32mBuilding C object CMakeFiles/exomy_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/exomy_msgs/_exomy_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[26.498s] [100%] [32m[1mLinking C shared library rosidl_generator_py/exomy_msgs/exomy_msgs_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so[0m
+[26.625s] [100%] Built target exomy_msgs__rosidl_typesupport_introspection_c__pyext
+[26.677s] Invoked command in '/home/xavier/ExoMy_Software/build/exomy_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/xavier/ExoMy_Software/install/exomy:/home/xavier/sensor_msgs_py/install/sensor_msgs_py:/opt/ros/foxy /usr/bin/cmake --build /home/xavier/ExoMy_Software/build/exomy_msgs -- -j8 -l8
+[27.102s] Invoking command in '/home/xavier/ExoMy_Software/build/exomy_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/xavier/ExoMy_Software/install/exomy:/home/xavier/sensor_msgs_py/install/sensor_msgs_py:/opt/ros/foxy /usr/bin/cmake --install /home/xavier/ExoMy_Software/build/exomy_msgs
+[27.133s] -- Install configuration: ""
+[27.133s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/ament_index/resource_index/rosidl_interfaces/exomy_msgs
+[27.134s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs
+[27.134s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg
+[27.135s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/rosidl_generator_c__visibility_control.h
+[27.135s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/motor_commands.h
+[27.136s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/camera_data.h
+[27.136s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail
+[27.136s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__functions.c
+[27.137s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__struct.h
+[27.138s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__type_support.h
+[27.139s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__functions.h
+[27.139s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__functions.h
+[27.140s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__struct.h
+[27.140s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__functions.c
+[27.141s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__type_support.h
+[27.141s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__functions.h
+[27.142s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__type_support.h
+[27.143s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__functions.c
+[27.143s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__struct.h
+[27.143s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/actions.h
+[27.144s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/environment/library_path.sh
+[27.145s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/environment/library_path.dsv
+[27.146s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__rosidl_generator_c.so
+[27.149s] -- Set runtime path of "/home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__rosidl_generator_c.so" to ""
+[27.151s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs
+[27.151s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg
+[27.152s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[27.152s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail
+[27.152s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__rosidl_typesupport_fastrtps_c.h
+[27.152s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__rosidl_typesupport_fastrtps_c.h
+[27.153s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__rosidl_typesupport_fastrtps_c.h
+[27.153s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__rosidl_typesupport_fastrtps_c.so
+[27.155s] -- Set runtime path of "/home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+[27.155s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs
+[27.156s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg
+[27.156s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail
+[27.156s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/dds_fastrtps
+[27.157s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__rosidl_typesupport_fastrtps_cpp.hpp
+[27.157s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__rosidl_typesupport_fastrtps_cpp.hpp
+[27.157s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__rosidl_typesupport_fastrtps_cpp.hpp
+[27.158s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[27.158s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__rosidl_typesupport_fastrtps_cpp.so
+[27.163s] -- Set runtime path of "/home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+[27.163s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs
+[27.164s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg
+[27.164s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[27.164s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail
+[27.165s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__rosidl_typesupport_introspection_c.h
+[27.165s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__rosidl_typesupport_introspection_c.h
+[27.166s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__type_support.c
+[27.166s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__type_support.c
+[27.167s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__type_support.c
+[27.167s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__rosidl_typesupport_introspection_c.h
+[27.168s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__rosidl_typesupport_introspection_c.so
+[27.169s] -- Set runtime path of "/home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__rosidl_typesupport_introspection_c.so" to ""
+[27.170s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__rosidl_typesupport_c.so
+[27.173s] -- Set runtime path of "/home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__rosidl_typesupport_c.so" to ""
+[27.173s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs
+[27.174s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg
+[27.174s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/camera_data.hpp
+[27.174s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail
+[27.175s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__struct.hpp
+[27.175s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__struct.hpp
+[27.175s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__traits.hpp
+[27.176s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__builder.hpp
+[27.176s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__builder.hpp
+[27.176s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__traits.hpp
+[27.177s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__struct.hpp
+[27.177s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__builder.hpp
+[27.178s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__traits.hpp
+[27.178s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/actions.hpp
+[27.180s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/motor_commands.hpp
+[27.180s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs
+[27.180s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg
+[27.181s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail
+[27.181s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__type_support.cpp
+[27.181s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__rosidl_typesupport_introspection_cpp.hpp
+[27.182s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/actions__type_support.cpp
+[27.182s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/camera_data__rosidl_typesupport_introspection_cpp.hpp
+[27.182s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__rosidl_typesupport_introspection_cpp.hpp
+[27.183s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/include/exomy_msgs/msg/detail/motor_commands__type_support.cpp
+[27.183s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__rosidl_typesupport_introspection_cpp.so
+[27.186s] -- Set runtime path of "/home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[27.187s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__rosidl_typesupport_cpp.so
+[27.189s] -- Set runtime path of "/home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__rosidl_typesupport_cpp.so" to ""
+[27.189s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/environment/pythonpath.sh
+[27.189s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/environment/pythonpath.dsv
+[27.190s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/__init__.py
+[27.574s] Compiling '/home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/__init__.py'...
+[27.589s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/msg
+[27.590s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/msg/_motor_commands.py
+[27.590s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/msg/_actions.py
+[27.591s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/msg/__init__.py
+[27.591s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/msg/_actions_s.c
+[27.592s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/msg/_camera_data.py
+[27.592s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/msg/_camera_data_s.c
+[27.592s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/msg/_motor_commands_s.c
+[27.594s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/exomy_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so
+[27.596s] -- Set runtime path of "/home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/exomy_msgs_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so" to ""
+[27.598s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/exomy_msgs_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so
+[27.600s] -- Set runtime path of "/home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/exomy_msgs_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so" to ""
+[27.601s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/exomy_msgs_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so
+[27.603s] -- Set runtime path of "/home/xavier/ExoMy_Software/install/exomy_msgs/lib/python3.8/site-packages/exomy_msgs/exomy_msgs_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so" to ""
+[27.604s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__python.so
+[27.607s] -- Set runtime path of "/home/xavier/ExoMy_Software/install/exomy_msgs/lib/libexomy_msgs__python.so" to ""
+[27.607s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/msg/Actions.idl
+[27.608s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/msg/CameraData.idl
+[27.608s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/msg/MotorCommands.idl
+[27.609s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/msg/Actions.msg
+[27.609s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/msg/CameraData.msg
+[27.610s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/msg/MotorCommands.msg
+[27.610s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/ament_index/resource_index/package_run_dependencies/exomy_msgs
+[27.611s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/ament_index/resource_index/parent_prefix_path/exomy_msgs
+[27.611s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/environment/ament_prefix_path.sh
+[27.612s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/environment/ament_prefix_path.dsv
+[27.612s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/environment/path.sh
+[27.613s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/environment/path.dsv
+[27.613s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/local_setup.bash
+[27.614s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/local_setup.sh
+[27.615s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/local_setup.zsh
+[27.616s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/local_setup.dsv
+[27.616s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/package.dsv
+[27.617s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/ament_index/resource_index/packages/exomy_msgs
+[27.618s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgs__rosidl_generator_cExport.cmake
+[27.619s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgs__rosidl_generator_cExport-noconfig.cmake
+[27.620s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgs__rosidl_typesupport_introspection_cExport.cmake
+[27.621s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[27.622s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgs__rosidl_typesupport_cExport.cmake
+[27.624s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[27.624s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgs__rosidl_generator_cppExport.cmake
+[27.625s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[27.627s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[27.628s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgs__rosidl_typesupport_cppExport.cmake
+[27.628s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[27.629s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/rosidl_cmake-extras.cmake
+[27.630s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[27.630s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[27.632s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[27.632s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[27.633s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[27.633s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[27.634s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgsConfig.cmake
+[27.635s] -- Installing: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/cmake/exomy_msgsConfig-version.cmake
+[27.635s] -- Up-to-date: /home/xavier/ExoMy_Software/install/exomy_msgs/share/exomy_msgs/package.xml
+[27.645s] Invoked command in '/home/xavier/ExoMy_Software/build/exomy_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/xavier/ExoMy_Software/install/exomy:/home/xavier/sensor_msgs_py/install/sensor_msgs_py:/opt/ros/foxy /usr/bin/cmake --install /home/xavier/ExoMy_Software/build/exomy_msgs
