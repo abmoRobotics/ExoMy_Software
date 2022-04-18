@@ -1,3 +1,6 @@
 *.pyc
 *.cpython-36.pyc
 .vscode
+build
+install
+log

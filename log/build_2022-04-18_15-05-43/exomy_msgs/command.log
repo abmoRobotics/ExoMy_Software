@@ -1,4 +1,0 @@
-Invoking command in '/home/xavier/ExoMy_Software/build/exomy_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/xavier/ExoMy_Software/install/exomy:/opt/ros/foxy /usr/bin/cmake --build /home/xavier/ExoMy_Software/build/exomy_msgs -- -j8 -l8
-Invoked command in '/home/xavier/ExoMy_Software/build/exomy_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/xavier/ExoMy_Software/install/exomy:/opt/ros/foxy /usr/bin/cmake --build /home/xavier/ExoMy_Software/build/exomy_msgs -- -j8 -l8
-Invoking command in '/home/xavier/ExoMy_Software/build/exomy_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/xavier/ExoMy_Software/install/exomy:/opt/ros/foxy /usr/bin/cmake --install /home/xavier/ExoMy_Software/build/exomy_msgs
-Invoked command in '/home/xavier/ExoMy_Software/build/exomy_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/xavier/ExoMy_Software/install/exomy:/opt/ros/foxy /usr/bin/cmake --install /home/xavier/ExoMy_Software/build/exomy_msgs
