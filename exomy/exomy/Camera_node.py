@@ -45,7 +45,7 @@ class Camera_node(Node):
         self.get_logger().info('\t{} STARTED.'.format(self.node_name.upper()))
       
         
-        
+       
 
     def callback(self, data):
         #print("hello")
@@ -53,27 +53,33 @@ class Camera_node(Node):
         pc = tf_img = np.delete(pc, 3, 1)
         pc = np.insert(pc, pc.shape[1], 1, axis=1)
         #self.get_logger().info('\tPC point: {}'.format(pc[0]))
-        points, Robotpos, RobotVel, RobotAcc, rot, ang_vel, ang_acc  = self.camera.callback(pc)
-        
+        points, Robotpos, RobotVel, RobotAcc, RobotRot, ang_vel, ang_acc  = self.camera.callback(pc)
 
         dataMsg = CameraData()
         dataMsg.robot_pos = Robotpos
         dataMsg.robot_vel = RobotVel
         dataMsg.robot_acc = RobotAcc
-        self.pub.publish(dataMsg)
+        dataMsg.robot_rot = RobotRot
 
-        self.get_logger().info('\tRobot Rotation: {}'.format(rot))
-        self.get_logger().info('\tRobot Angular Velocity: {}'.format(ang_vel))
-        self.get_logger().info('\tRobot Angular Acceleration: {}'.format(ang_acc))
-        PointCloudTrans = PointCloud()
-        for i in range(len(points)):
-            point = Point32()
-            point.x = float(points[i][0])
-            point.y = float(points[i][1])
-            point.z = float(points[i][2])
-            PointCloudTrans.points.append(point)
-        PointCloudTrans.header = data.header
-        self.pointpub.publish(PointCloudTrans)
+        #self.get_logger().info('\tRobot Rotation: {}'.format(rot))
+        #self.get_logger().info('\tRobot Angular Velocity: {}'.format(ang_vel))
+        #self.get_logger().info('\tRobot Angular Acceleration: {}'.format(ang_acc))
+
+        doPointCloud = False
+        if doPointCloud:
+            PointCloudTrans = PointCloud()
+            for i in range(len(points)):
+                point = Point32()
+                point.x = float(points[i][0])
+                point.y = float(points[i][1])
+                point.z = float(points[i][2])
+                PointCloudTrans.points.append(point)
+            PointCloudTrans.header = data.header
+            self.pointpub.publish(PointCloudTrans)
+        #dataMsg.depth_data = np.full((150,), 0.0, dtype=float)
+        self.pub.publish(dataMsg)
+        
+        
         #self.get_logger().info('\tMin: {}'.format(min(points[:,2])))
         #self.get_logger().info('\tMax: {}'.format(max(points[:,2])))
 

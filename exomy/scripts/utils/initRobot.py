@@ -47,7 +47,7 @@ class Rover():
         for pin_name, pin_num in self.drivePins.items():
             self.module.channels[self.drivePins[pin_name]].duty_cycle  = self.remap(
                 motor_velocities[driveValues[pin_name]], -math.pi, math.pi, 
-                    self.driveNeutral - self.drivePWMrange, self.driveNeutral + self.drivePWMrange)
+                    self.driveNeutral - self.drivePWMrange/2, self.driveNeutral + self.drivePWMrange/2)
 
         
     def get_steering_motor_pins(self, config_filename):

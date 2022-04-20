@@ -1,8 +1,8 @@
 import pyrealsense2 as rs
 import numpy as np
 import math
-
-
+from scipy.spatial.transform import Rotation as R
+import time
 class Cameras:
     def __init__(self):
         # Declare RealSense pipeline, encapsulating the actual device and sensors
@@ -20,11 +20,11 @@ class Cameras:
 
     def callback(self, pointcloud):
         frames = self.pipe.wait_for_frames()
-
+        
         # Fetch pose frame
         pose = frames.get_pose_frame()
         data = pose.get_pose_data()
-
+        
         pos = data.translation
         vel = data.velocity
         acc = data.acceleration
@@ -34,12 +34,35 @@ class Cameras:
         RobotPos = [pos.x * -1, pos.z, pos.y]
         RobotVel = [vel.x * -1, vel.z, vel.y]
         RobotAcc = [acc.x * -1, acc.z, acc.y]
-
+        r = R.from_quat([rot.x, rot.y, rot.z, rot.w])
+        Rot_vec = r.as_rotvec()
+        RobotRot = [(Rot_vec[0] * -1) - 0.194, Rot_vec[2], Rot_vec[1]]
+        
         new_cloud = self.TransCloud(pointcloud)
-        return new_cloud, RobotPos, RobotVel, RobotAcc, rot, ang_vel, ang_acc
+        return new_cloud, RobotPos, RobotVel, RobotAcc, RobotRot, ang_vel, ang_acc
 
 
-
+    def euler_from_quaternion(self, x, y, z, w):
+        """
+        Convert a quaternion into euler angles (roll, pitch, yaw)
+        roll is rotation around x in radians (counterclockwise)
+        pitch is rotation around y in radians (counterclockwise)
+        yaw is rotation around z in radians (counterclockwise)
+        """
+        t0 = +2.0 * (w * x + y * z)
+        t1 = +1.0 - 2.0 * (x * x + y * y)
+        roll_x = math.atan2(t0, t1)
+     
+        t2 = +2.0 * (w * y - z * x)
+        t2 = +1.0 if t2 > +1.0 else t2
+        t2 = -1.0 if t2 < -1.0 else t2
+        pitch_y = math.asin(t2)
+     
+        t3 = +2.0 * (w * z + x * y)
+        t4 = +1.0 - 2.0 * (y * y + z * z)
+        yaw_z = math.atan2(t3, t4)
+     
+        return roll_x, pitch_y, yaw_z # in radians 
 
 
     def TransCloud(self, pointCloud):

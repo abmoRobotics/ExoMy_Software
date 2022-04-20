@@ -60,9 +60,9 @@ def generate_launch_description():
     
     return LaunchDescription([
         camera,
-        joy,
+        #joy,
         gamepad,  
         kinematics,
         motors,
-        #model
+        model
     ])
