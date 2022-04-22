@@ -11,9 +11,8 @@ def kinematicsCPU(lin_vel_x, ang_vel):
 
         steering_angles = [0.0]*6
         motor_speeds = [0.0]*6
-
         if ang_vel != 0:
-            radius = (abs(lin_vel_x)/abs(ang_vel))*10
+            radius = (abs(lin_vel_x)/abs(ang_vel))*100
 
         # Distance from center og the rover to the top (centimeters):
         y_top = 19.5 # check if it's correct
@@ -120,20 +119,5 @@ def kinematicsCPU(lin_vel_x, ang_vel):
             motor_speeds[RL] = -lin_vel_x
             motor_speeds[RR] = lin_vel_x*frontRelation
 
-        # Motor speeds are converted to int's
-        #motor_speeds[FL] = int(motor_speeds[FL])
-        #motor_speeds[FR] = int(motor_speeds[FR])
-        #motor_speeds[CL] = int(motor_speeds[CL])
-        #motor_speeds[CR] = int(motor_speeds[CR])
-        #motor_speeds[RL] = int(motor_speeds[RL])
-        #motor_speeds[RR] = int(motor_speeds[RR])
-
-        # Steering angles are first converted to degrees and then to int's
-        #steering_angles[FL] = int(np.rad2deg(steering_angles[FL]))
-        #steering_angles[FR] = int(np.rad2deg(steering_angles[FR]))
-        #steering_angles[CL] = int(np.rad2deg(steering_angles[CL]))
-        #steering_angles[CR] = int(np.rad2deg(steering_angles[CR]))
-        #steering_angles[RL] = int(np.rad2deg(steering_angles[RL]))
-        #steering_angles[RR] = int(np.rad2deg(steering_angles[RR]))
     
         return steering_angles, motor_speeds

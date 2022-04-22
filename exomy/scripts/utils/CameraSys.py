@@ -38,8 +38,8 @@ class Cameras:
         Rot_vec = r.as_rotvec()
         RobotRot = [(Rot_vec[0] * -1) - 0.194, Rot_vec[2], Rot_vec[1]]
         
-        new_cloud = self.TransCloud(pointcloud)
-        return new_cloud, RobotPos, RobotVel, RobotAcc, RobotRot, ang_vel, ang_acc
+        tf_cloud = self.TransCloud(pointcloud)
+        return tf_cloud, RobotPos, RobotVel, RobotAcc, RobotRot, ang_vel, ang_acc
 
 
     def euler_from_quaternion(self, x, y, z, w):
@@ -69,14 +69,14 @@ class Cameras:
 
         x_rot = -26.7-90 #placed in 61 degrees than 29+90 =119, 61+90=151
         y_rot = 0 #Guessed
-        z_rot = 2 #Guessed
+        z_rot = 180 #Guessed
 
         omega = math.radians(x_rot)
         theta = math.radians(y_rot)
         kappa = math.radians(z_rot)
 
-        tx = -0.057 # unsure of the unit
-        ty = -0.040 # 
+        tx = 0.057 # unsure of the unit
+        ty = 0.040 # 
         tz = 0.39 # 
 
         ###############################################################
@@ -105,8 +105,8 @@ class Cameras:
         tf_cloud[:,0] += tx
         tf_cloud[:,1] += ty
         tf_cloud[:,2] += tz
-        tf_cloud = np.delete(tf_cloud, np.where(tf_cloud[:,1] < 0.05), axis=0) # Remove points closer than 0.2 meters of the robot
-        tf_cloud = np.delete(tf_cloud, np.where(tf_cloud[:,1] > 2), axis=0)
+        tf_cloud = np.delete(tf_cloud, np.where(tf_cloud[:,1] > -0.05), axis=0) # Remove points closer than 0.2 meters of the robot
+        tf_cloud = np.delete(tf_cloud, np.where(tf_cloud[:,1] < -2), axis=0)
         tf_cloud = np.delete(tf_cloud, np.where(tf_cloud[:,0] > 0.7), axis=0)
         tf_cloud = np.delete(tf_cloud, np.where(tf_cloud[:,0] < -0.7), axis=0)
 

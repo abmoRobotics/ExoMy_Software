@@ -17,7 +17,7 @@ class RLModelNode(Node):
     def __init__(self):
         self.node_name = 'RLModel_node'
         super().__init__(self.node_name)
-
+        
         self.Dcamera_sub = self.create_subscription(
             CameraData,
             'CameraData',
@@ -28,18 +28,19 @@ class RLModelNode(Node):
             Actions,
             'Actions',
             1)
-        self.observation_space = Box(-math.inf,math.inf,(155,))
+        self.observation_space = Box(-math.inf,math.inf,(154,))
         self.action_space = Box(-1.0,1.0,(2,))  
-        self.goal = np.array([0.0,-2.0])
-        self.model = self.load_model('/home/xavier/ExoMy_Software/exomy/config/237000_policy.pt')
-        self.value = self.load_value('/home/xavier/ExoMy_Software/exomy/config/237000_policy.pt')
+        self.goal = np.array([3.0,-3.0])
+        self.model = self.load_model('/home/xavier/ExoMy_Software/exomy/config/21000_policy.pt')
+        self.value = self.load_value('/home/xavier/ExoMy_Software/exomy/config/21000_policy.pt')
         self.oldSteering = 0
         self.oldVelocity = 0
         cfg_ppo = PPO_DEFAULT_CONFIG.copy()
-        self.policy = {"policy" : self.model,
-                        "value" : self.value}
-        
-        
+        self.policy = {"policy": m.StochasticActorHeightmap(self.observation_space, self.action_space, network_features=[512,256,128], encoder_features=[80,60], activation_function="relu"),
+                        "value": None}
+
+        self.policy["policy"].load("/home/xavier/ExoMy_Software/exomy/config/21000_policy.pt")
+        #cfg_ppo = PPO_DEFAULT_CONFIG.copy()
         self.agent = PPO(models=self.policy,
             memory=None, 
             cfg=cfg_ppo, 
@@ -63,30 +64,55 @@ class RLModelNode(Node):
         #self.get_logger().info('\tOwn Z Rot: {}'.format(msg.robot_rot[2]))
         #self.get_logger().info('\tHeading Difference: {}'.format(heading_diff))
         #self.get_logger().info('\tDistance to Target: {}'.format(target_dist))
-        
-        a = torch.zeros((1,155))
-        a[0,0] = target_dist/4
-        a[0,1] = heading_diff/3
-        a[0,2] = msg.robot_rot[2]
-        a[0,3] = self.oldSteering
-        a[0,4] = self.oldVelocity
+        if target_dist > 0.05:
+            a = torch.zeros((1,154))
+            a[0,0] = target_dist/4
+            a[0,1] = heading_diff/3
+            #a[0,2] = msg.robot_rot[2]
+            a[0,2] = self.oldVelocity
+            a[0,3] = self.oldSteering
+            
+            
+            motorsCom = self.agent.policy.act(a,inference=True)
+            self.get_logger().info('\tLin Vel: {}'.format(motorsCom[0][0][0]))
+            self.get_logger().info('\tAng Vel: {}'.format(motorsCom[0][0][1]))
+            self.get_logger().info('\tTarget Distance: {}'.format(a[0,0]))
+            self.get_logger().info('\tHeading Difference: {}'.format(a[0,1]))
+            self.get_logger().info('\tPrevious Lin Vel: {}'.format(a[0,2]))
+            self.get_logger().info('\tPrevious Ang Vel: {}'.format(a[0,3]))
 
-        motorsCom = self.agent.policy.act(a,inference=True)
-        steering = torch.clip(motorsCom[0][0][0], min = -1, max = 1)
-        velocity = torch.clip(motorsCom[0][0][1], min = -1, max = 1)
-        steering = steering.item()
-        velocity = velocity.item()
-        
-        
-        self.oldSteering = steering
-        self.oldVelocity = velocity
-
-        message = Actions()
-        message.lin_vel = float(velocity) * 3
-        message.ang_vel = float(steering) * 3
-        self.robot_pub.publish(message)
-        finish = time.perf_counter() - start
-        #self.get_logger().info('\t TIME: {}'.format(finish))
+            velocity = torch.clip(motorsCom[0][0][0], min = -1, max = 1)
+            steering = torch.clip(motorsCom[0][0][1], min = -1, max = 1)
+            
+            velocity = velocity.item()
+            steering = steering.item()
+            
+            
+            self.oldVelocity = velocity
+            self.oldSteering = steering
+            
+            
+            message = Actions()
+            message.lin_vel = float(velocity) * 3
+            message.ang_vel = float(steering) * 3
+            # if ((-0.6 < message.lin_vel < 0.6) and (1.2 < message.ang_vel < -1.2)):
+            #     message.lin_vel = 0.0
+            
+            # print(message.lin_vel)
+            # print(message.ang_vel)
+            self.robot_pub.publish(message)
+            finish = time.perf_counter() - start
+            #self.get_logger().info('\t TIME: {}'.format(finish))
+        else:
+            message = Actions()
+            message.lin_vel = float(0)
+            message.ang_vel = float(0)
+            # if ((-0.6 < message.lin_vel < 0.6) and (1.2 < message.ang_vel < -1.2)):
+            #     message.lin_vel = 0.0
+            
+            # print(message.lin_vel)
+            # print(message.ang_vel)
+            self.robot_pub.publish(message)
 
 
     def load_checkpoint(checkpoint, model):

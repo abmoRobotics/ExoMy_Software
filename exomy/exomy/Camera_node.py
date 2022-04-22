@@ -49,10 +49,11 @@ class Camera_node(Node):
 
     def callback(self, data):
         #print("hello")
+        start = time.perf_counter()
         pc = np.asarray(point_cloud2.read_points_list(data))
-        pc = tf_img = np.delete(pc, 3, 1)
+        pc = np.delete(pc, 3, 1)
         pc = np.insert(pc, pc.shape[1], 1, axis=1)
-        #self.get_logger().info('\tPC point: {}'.format(pc[0]))
+        
         points, Robotpos, RobotVel, RobotAcc, RobotRot, ang_vel, ang_acc  = self.camera.callback(pc)
 
         dataMsg = CameraData()
@@ -64,20 +65,19 @@ class Camera_node(Node):
         #self.get_logger().info('\tRobot Rotation: {}'.format(rot))
         #self.get_logger().info('\tRobot Angular Velocity: {}'.format(ang_vel))
         #self.get_logger().info('\tRobot Angular Acceleration: {}'.format(ang_acc))
-
-        doPointCloud = False
-        if doPointCloud:
-            PointCloudTrans = PointCloud()
-            for i in range(len(points)):
-                point = Point32()
-                point.x = float(points[i][0])
-                point.y = float(points[i][1])
-                point.z = float(points[i][2])
-                PointCloudTrans.points.append(point)
-            PointCloudTrans.header = data.header
-            self.pointpub.publish(PointCloudTrans)
+        
+        # PointCloudTrans = PointCloud()
+        # for i in range(len(points)):
+        #     point = Point32()
+        #     point.x = float(points[i][0])
+        #     point.y = float(points[i][1])
+        #     point.z = float(points[i][2])
+        #     PointCloudTrans.points.append(point)
+        # PointCloudTrans.header = data.header
+        # self.pointpub.publish(PointCloudTrans)
         #dataMsg.depth_data = np.full((150,), 0.0, dtype=float)
         self.pub.publish(dataMsg)
+        #self.get_logger().info('\tTime: {}'.format(time.perf_counter() - start))
         
         
         #self.get_logger().info('\tMin: {}'.format(min(points[:,2])))

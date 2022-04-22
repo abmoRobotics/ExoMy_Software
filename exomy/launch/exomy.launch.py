@@ -21,7 +21,7 @@ def generate_launch_description():
         namespace=namespace_,
         output='screen'
     )
-    
+
     joy = Node(
         package='joy',
         executable='joy_node',
