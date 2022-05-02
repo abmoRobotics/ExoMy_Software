@@ -183,6 +183,8 @@ class Rover():
             result = newMax - portion
 
         return int(result)
+
+        
     def exit_handler(self):
         
         self.module.channels[self.drivePins['pin_drive_fl']].duty_cycle = 0
