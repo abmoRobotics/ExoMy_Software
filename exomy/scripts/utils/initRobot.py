@@ -7,10 +7,15 @@ import torch
 import atexit
 # Import the PCA9685 module.
 from adafruit_pca9685 import PCA9685
-
+import csv
+import numpy as np
 
 class Rover():
     def __init__(self, config_filename):
+        self.doLogging = True
+        if self.doLogging:
+            f = open('/home/xavier/ExoMy_Software/exomy/scripts/utils/csv/MotorCommands.csv', 'w')
+            self.writer = csv.writer(f)
         self.i2c_bus = busio.I2C(SCL, SDA)
         self.module = PCA9685(self.i2c_bus)
         self.module.frequency = 50
@@ -25,6 +30,7 @@ class Rover():
         self.steerPWMrange = self.get_steer_pwm_range(config_filename)
         self.startup_sequence()
         atexit.register(self.exit_handler)
+        
 
     def setMotorsFromKinematics(self, steering_angles, motor_velocities):
         steeringAnglesMotors = {'pin_steer_fl': 'steer_pwm_neutral_fl', 'pin_steer_fr': 'steer_pwm_neutral_fr', 
@@ -32,7 +38,8 @@ class Rover():
                 'pin_steer_rl': 'steer_pwm_neutral_rl', 'pin_steer_rr': 'steer_pwm_neutral_rr'}
         steeringValues = {'pin_steer_fl': 0, 'pin_steer_fr': 1, 'pin_steer_cl': 2, 'pin_steer_cr': 3, 'pin_steer_rl': 4, 'pin_steer_rr': 5}
         driveValues = {'pin_drive_fl': 0, 'pin_drive_fr': 1, 'pin_drive_cl': 2, 'pin_drive_cr': 3, 'pin_drive_rl': 4, 'pin_drive_rr': 5}
-
+        if self.doLogging:
+            self.writer.writerow(np.array([steering_angles.tolist(), motor_velocities.tolist()]).flatten())
         #steering_angles = steering_angles.cpu().detach().numpy()
         #motor_velocities = motor_velocities.cpu().detach().numpy()
         #print(len(steering_angles))
@@ -110,19 +117,19 @@ class Rover():
         
 
 
-        for i in range(180):
-            on_time = 0.5 + (((2.25-0.5)/180) * i)
-            duty_cycle = int((on_time/self.cycle)*65536)
-            for pin_name, pin_num in self.steeringPins.items():
-                self.module.channels[self.steeringPins[pin_name]].duty_cycle = duty_cycle
-            time.sleep(0.001)
+        # for i in range(180):
+        #     on_time = 0.5 + (((2.25-0.5)/180) * i)
+        #     duty_cycle = int((on_time/self.cycle)*65536)
+        #     for pin_name, pin_num in self.steeringPins.items():
+        #         self.module.channels[self.steeringPins[pin_name]].duty_cycle = duty_cycle
+        #     time.sleep(0.001)
 
-        for i in range(180):
-            on_time = 2.25 - ((2.25-0.5)/180) * i
-            duty_cycle = int((on_time/self.cycle)*65536)
-            for pin_name, pin_num in self.steeringPins.items():
-                self.module.channels[self.steeringPins[pin_name]].duty_cycle = duty_cycle
-            time.sleep(0.001)
+        # for i in range(180):
+        #     on_time = 2.25 - ((2.25-0.5)/180) * i
+        #     duty_cycle = int((on_time/self.cycle)*65536)
+        #     for pin_name, pin_num in self.steeringPins.items():
+        #         self.module.channels[self.steeringPins[pin_name]].duty_cycle = duty_cycle
+        #     time.sleep(0.001)
 
         self.module.channels[self.steeringPins['pin_steer_fl']].duty_cycle = self.steeringNeutrals['steer_pwm_neutral_fl']
         self.module.channels[self.steeringPins['pin_steer_fr']].duty_cycle = self.steeringNeutrals['steer_pwm_neutral_fr']
@@ -131,20 +138,20 @@ class Rover():
         self.module.channels[self.steeringPins['pin_steer_rl']].duty_cycle = self.steeringNeutrals['steer_pwm_neutral_rl']
         self.module.channels[self.steeringPins['pin_steer_rr']].duty_cycle = self.steeringNeutrals['steer_pwm_neutral_rr']
 
-        self.module.channels[self.drivePins['pin_drive_fl']].duty_cycle = self.driveNeutral + 100
-        self.module.channels[self.drivePins['pin_drive_fr']].duty_cycle = self.driveNeutral - 100
-        self.module.channels[self.drivePins['pin_drive_cl']].duty_cycle = self.driveNeutral + 100
-        self.module.channels[self.drivePins['pin_drive_cr']].duty_cycle = self.driveNeutral - 100
-        self.module.channels[self.drivePins['pin_drive_rl']].duty_cycle = self.driveNeutral + 100
-        self.module.channels[self.drivePins['pin_drive_rr']].duty_cycle = self.driveNeutral - 100
-        time.sleep(0.5)
+        # self.module.channels[self.drivePins['pin_drive_fl']].duty_cycle = self.driveNeutral + 100
+        # self.module.channels[self.drivePins['pin_drive_fr']].duty_cycle = self.driveNeutral - 100
+        # self.module.channels[self.drivePins['pin_drive_cl']].duty_cycle = self.driveNeutral + 100
+        # self.module.channels[self.drivePins['pin_drive_cr']].duty_cycle = self.driveNeutral - 100
+        # self.module.channels[self.drivePins['pin_drive_rl']].duty_cycle = self.driveNeutral + 100
+        # self.module.channels[self.drivePins['pin_drive_rr']].duty_cycle = self.driveNeutral - 100
+        # time.sleep(0.5)
 
-        self.module.channels[self.drivePins['pin_drive_fl']].duty_cycle = self.driveNeutral - 100
-        self.module.channels[self.drivePins['pin_drive_fr']].duty_cycle = self.driveNeutral + 100
-        self.module.channels[self.drivePins['pin_drive_cl']].duty_cycle = self.driveNeutral - 100
-        self.module.channels[self.drivePins['pin_drive_cr']].duty_cycle = self.driveNeutral + 100
-        self.module.channels[self.drivePins['pin_drive_rl']].duty_cycle = self.driveNeutral - 100
-        self.module.channels[self.drivePins['pin_drive_rr']].duty_cycle = self.driveNeutral + 100
+        # self.module.channels[self.drivePins['pin_drive_fl']].duty_cycle = self.driveNeutral - 100
+        # self.module.channels[self.drivePins['pin_drive_fr']].duty_cycle = self.driveNeutral + 100
+        # self.module.channels[self.drivePins['pin_drive_cl']].duty_cycle = self.driveNeutral - 100
+        # self.module.channels[self.drivePins['pin_drive_cr']].duty_cycle = self.driveNeutral + 100
+        # self.module.channels[self.drivePins['pin_drive_rl']].duty_cycle = self.driveNeutral - 100
+        # self.module.channels[self.drivePins['pin_drive_rr']].duty_cycle = self.driveNeutral + 100
         time.sleep(0.5)
         for pin_name, pin_num in self.drivePins.items():
             self.module.channels[self.drivePins[pin_name]].duty_cycle = self.driveNeutral

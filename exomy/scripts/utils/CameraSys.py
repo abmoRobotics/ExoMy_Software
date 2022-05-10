@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from logging.handlers import DEFAULT_SOAP_LOGGING_PORT
 import pyrealsense2 as rs
 import numpy as np
 import math
@@ -6,24 +7,28 @@ from scipy.spatial.transform import Rotation as R
 import time
 import torch
 from sensor_msgs.msg import PointCloud2, PointField
-
-
+import csv
+from CamProc import key_pointsF
 class Cameras:
     def __init__(self):
         # Declare RealSense pipeline, encapsulating the actual device and sensors
         self.pipe = rs.pipeline()
-
+        self.doLogging = True
+        if self.doLogging:
+            f = open('/home/xavier/ExoMy_Software/exomy/scripts/utils/csv/Position.csv', 'w')
+            self.writer = csv.writer(f)
         # Build config object and request pose data
         cfg = rs.config()
         cfg.enable_stream(rs.stream.pose)
 
         # Start streaming with requested config
         self.pipe.start(cfg)
-
+        self.heightmap_distribution = self.heightmap_distribution( delta=0.1, limit=1.2,front_heavy=0.0)
         for x in range(5):
             self.pipe.wait_for_frames()
 
     def callback(self, pointcloud):
+        start = time.perf_counter()
         frames = self.pipe.wait_for_frames()
         
         # Fetch pose frame
@@ -42,14 +47,19 @@ class Cameras:
         RobotVel = self.TransPoint(np.array([vel.x, vel.y, vel.z]))
         #RobotAcc = [acc.x * -1, acc.z, acc.y]
         RobotAcc = self.TransPoint(np.array([acc.x, acc.y, acc.z]))
+        if self.doLogging:
+            self.writer.writerow(RobotPos)
+
+        
         r = R.from_quat([rot.x, rot.y, rot.z, rot.w])
         Rot_vec = r.as_rotvec()
         #RobotRot = [(Rot_vec[0] * -1) - 0.194, Rot_vec[2], Rot_vec[1]]
         RobotRot = self.TransPoint(np.array([Rot_vec[0], Rot_vec[1], Rot_vec[2]]))
         
         tf_cloud = self.TransCloud(pointcloud)
-        start = time.perf_counter()
-        points = self.key_points(torch.tensor(tf_cloud))        
+        print(tf_cloud.shape)
+        #points = self.key_points(torch.tensor(tf_cloud))        
+        points = key_pointsF(torch.tensor(tf_cloud), self.heightmap_distribution)        
         elaps = time.perf_counter() - start
         return tf_cloud, RobotPos, RobotVel, RobotAcc, RobotRot, ang_vel, ang_acc, points, elaps
 
@@ -196,21 +206,21 @@ class Cameras:
     def limit_x(self, x):
         return x*(0.24555/0.296)+0.13338
 
-    def key_points(self, heightData):
+    def key_points(heightData):
         # type: (Tensor) -> (Tensor)
         device = torch.device('cuda:0')
         # N = 50 # Number of key points
         # probability = np.zeros(len(heightData))
-        heightmap_distribution = self.heightmap_distribution( delta=0.1, limit=1.2,front_heavy=0.0)
+        
         # Create a matrix for the sampled data
-        sampled_heightData = torch.empty((len(heightmap_distribution),3), device = device)
+        sampled_heightData = torch.empty((len(self.heightmap_distribution),3), device = device)
         # Create a empty vector for summing the values
         summer = torch.zeros(len(heightData[:,0]), device=device)
         # Convert numpy to torch tensor
         #data = torch.tensor(heightData)
         data = heightData.to(device)
         # Get the 10% heighest points
-        p = 1
+        p = 0.1
         height_threshhold = 0.001 # cm
         height_sum_threshhold = 0.5 # 
         #start = time.time()
@@ -221,11 +231,13 @@ class Cameras:
 
         #print(data.shape)
         #print(data[0:30])
-        for i, point in enumerate(heightmap_distribution):
+        #summer1 = torch.where((heightmap_distribution[:,0]+0.05 >= data[:,0]) & (data[:,0] > heightmap_distribution[:,0]-0.05) & (heightmap_distribution[:,1]-0.05 <= data[:,1]) & (data[:,1] < heightmap_distribution[:,1]+0.05), data[:,2], 0.0)
+        for i, point in enumerate(self.heightmap_distribution):
             x = point[0]
             y = point[1]
             sampled_heightData[i,0] = x
             sampled_heightData[i,1] = y
+            
             summer = torch.where((x+0.05 >= data[:,0]) & (data[:,0] > x-0.05) & (y-0.05 <= data[:,1]) & (data[:,1] < y+0.05), data[:,2], 0.0)
             if(torch.logical_not(torch.sum(summer) == 0.0)):
                 # Remove points below threshhold
@@ -233,7 +245,9 @@ class Cameras:
                 #rint(B)
                 # Get number of points above threshhold
                 n  = B.shape[0]
-                sampled_heightData[i,2] = B.sum().item()/int(n*p)
+                B, indices = B.sort(descending=True)
+                B = B[0:int(n*p+1)]
+                sampled_heightData[i,2] = B.sum().item()/int(n*p+1)
             else:
                 sampled_heightData[i,2] = 0
         # for i in range(0, 20):

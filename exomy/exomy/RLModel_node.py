@@ -15,6 +15,7 @@ sys.path.append('/home/xavier/ExoMy_Software/exomy/scripts/utils')
 import model as m
 class RLModelNode(Node):
     def __init__(self):
+        self.drive = True
         self.node_name = 'RLModel_node'
         super().__init__(self.node_name)
         
@@ -30,16 +31,16 @@ class RLModelNode(Node):
             1)
         self.observation_space = Box(-math.inf,math.inf,(154,))
         self.action_space = Box(-1.0,1.0,(2,))  
-        self.goal = np.array([1.5,-4.0])
-        self.model = self.load_model('/home/xavier/ExoMy_Software/exomy/config/obstacle_run/270000_policy.pt')
-        self.value = self.load_value('/home/xavier/ExoMy_Software/exomy/config/obstacle_run/270000_policy.pt')
+        self.goal = np.array([0.0,-0.3])
+        self.model = self.load_model('/home/xavier/ExoMy_Software/exomy/config/obstacle_run/450000_policy.pt')
+        self.value = self.load_value('/home/xavier/ExoMy_Software/exomy/config/obstacle_run/450000_policy.pt')
         self.oldSteering = 0
         self.oldVelocity = 0
         cfg_ppo = PPO_DEFAULT_CONFIG.copy()
         self.policy = {"policy": m.StochasticActorHeightmap(self.observation_space, self.action_space, network_features=[256,160,128], encoder_features=[60,20], activation_function="relu"),
                         "value": None}
 
-        self.policy["policy"].load("/home/xavier/ExoMy_Software/exomy/config/obstacle_run/270000_policy.pt")
+        self.policy["policy"].load("/home/xavier/ExoMy_Software/exomy/config/obstacle_run/450000_policy.pt")
         #cfg_ppo = PPO_DEFAULT_CONFIG.copy()
         self.agent = PPO(models=self.policy,
             memory=None, 
@@ -66,8 +67,8 @@ class RLModelNode(Node):
 
             #self.get_logger().info('\tOwn Z Rot: {}'.format(msg.robot_rot[2]))
             #self.get_logger().info('\tHeading Difference: {}'.format(heading_diff))
-            #self.get_logger().info('\tDistance to Target: {}'.format(target_dist))
-            if target_dist > 0.10:
+            self.get_logger().info('\tDistance to Target: {}'.format(target_dist))
+            if target_dist > 0.05 and self.drive:
                 DepthInfo = torch.zeros((1,154))
                 DepthInfo[0,0] = target_dist/4
                 DepthInfo[0,1] = heading_diff/3
@@ -110,6 +111,7 @@ class RLModelNode(Node):
                 message = Actions()
                 message.lin_vel = float(0)
                 message.ang_vel = float(0)
+                self.drive = False
                 # if ((-0.6 < message.lin_vel < 0.6) and (1.2 < message.ang_vel < -1.2)):
                 #     message.lin_vel = 0.0
                 
