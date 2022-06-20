@@ -118,6 +118,6 @@ def kinematicsCPU(lin_vel_x, ang_vel):
             motor_speeds[CR] = lin_vel_x*frontCenterRelation*centerRelation
             motor_speeds[RL] = -lin_vel_x
             motor_speeds[RR] = lin_vel_x*frontRelation
-
-    
+        #motor_speeds = motor_speeds * 0.3
+        #new_list = [item / 2 for item in motor_speeds]
         return steering_angles, motor_speeds

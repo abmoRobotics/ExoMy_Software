@@ -22,7 +22,7 @@ class MotorNode(Node):
             MotorCommands,
             'MotorCommands',
             self.callback,
-            10)
+            1)
 
         self.MotorSub  # prevent unused variable warning
 

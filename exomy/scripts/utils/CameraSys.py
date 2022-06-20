@@ -23,11 +23,11 @@ class Cameras:
 
         # Start streaming with requested config
         self.pipe.start(cfg)
-        self.heightmap_distribution = self.heightmap_distribution( delta=0.1, limit=1.2,front_heavy=0.0)
+        self.heightmap_distribution = torch.tensor(self.heightmap_distribution( 1.12, 1.2, square=True, y_start=0.03, delta=0.05, front_heavy=0.0), device='cuda:0')
         for x in range(5):
             self.pipe.wait_for_frames()
 
-    def callback(self, pointcloud):
+    def callback(self, pointcloud, pointcloud2):
         start = time.perf_counter()
         frames = self.pipe.wait_for_frames()
         
@@ -56,12 +56,14 @@ class Cameras:
         #RobotRot = [(Rot_vec[0] * -1) - 0.194, Rot_vec[2], Rot_vec[1]]
         RobotRot = self.TransPoint(np.array([Rot_vec[0], Rot_vec[1], Rot_vec[2]]))
         
-        tf_cloud = self.TransCloud(pointcloud)
-        print(tf_cloud.shape)
-        #points = self.key_points(torch.tensor(tf_cloud))        
-        points = key_pointsF(torch.tensor(tf_cloud), self.heightmap_distribution)        
+
+
+        tf_cloud = self.TransCloud(pointcloud, 1)
+        tf_cloud2 = self.TransCloud(pointcloud2, 2)
+        tf_cloudSum = np.append(tf_cloud, tf_cloud2, axis=0)
+        points = self.key_points(torch.tensor(tf_cloudSum))               
         elaps = time.perf_counter() - start
-        return tf_cloud, RobotPos, RobotVel, RobotAcc, RobotRot, ang_vel, ang_acc, points, elaps
+        return tf_cloudSum, RobotPos, RobotVel, RobotAcc, RobotRot, ang_vel, ang_acc, points, elaps
 
 
     def euler_from_quaternion(self, x, y, z, w):
@@ -123,19 +125,27 @@ class Cameras:
         return tf_point
 
 
-    def TransCloud(self, pointCloud):
+    def TransCloud(self, pointCloud, cam):
+        if cam == 1:
+            self.x_rot = -26.7-90 #placed in 61 degrees than 29+90 =119, 61+90=151
+            self.y_rot = 0 #Guessed
+            self.z_rot = -135 #Guessed
+            self.tx = -0.04445 # unsure of the unit
+            self.ty = -0.04809 # 
+            self.tz = 0.39438 # 
+        elif cam == 2:
+            self.x_rot = -26.7-90 #placed in 61 degrees than 29+90 =119, 61+90=151
+            self.y_rot = 0 #Guessed
+            self.z_rot = 135 #Guessed
+            self.tx = 0.07295 # unsure of the unit
+            self.ty = -0.02622 # 
+            self.tz = 0.39438 # 
 
-        x_rot = -26.7-90 #placed in 61 degrees than 29+90 =119, 61+90=151
-        y_rot = 0 #Guessed
-        z_rot = 180 #Guessed
+        omega = math.radians(self.x_rot)
+        theta = math.radians(self.y_rot)
+        kappa = math.radians(self.z_rot)
 
-        omega = math.radians(x_rot)
-        theta = math.radians(y_rot)
-        kappa = math.radians(z_rot)
-
-        tx = 0.057 # unsure of the unit
-        ty = 0.040 # 
-        tz = 0.39 # 
+        
 
         ###############################################################
         # Rotation and translation matrices
@@ -156,132 +166,126 @@ class Cameras:
                                 [0, 0, 0, 1]    
                             ])
 
-        projection_mat = np.matmul(np.matmul(rotMat_x, rotMat_y), rotMat_z)
+        projection_mat = np.matmul(rotMat_x, rotMat_y)
+        projection_mat = np.matmul(projection_mat, rotMat_z)
         tf_cloud = np.matmul(pointCloud,projection_mat)  
         tf_cloud = np.delete(tf_cloud, 3, 1)
         #tf_cloud = cloud.dot(projection_mat)
-        tf_cloud[:,0] += tx
-        tf_cloud[:,1] += ty
-        tf_cloud[:,2] += tz
-        tf_cloud = np.delete(tf_cloud, np.where(tf_cloud[:,1] > -0.15), axis=0) # Remove points closer than 0.2 meters of the robot
-        tf_cloud = np.delete(tf_cloud, np.where(tf_cloud[:,1] < -1.25), axis=0)
+        tf_cloud[:,0] += self.tx
+        tf_cloud[:,1] += self.ty
+        tf_cloud[:,2] += self.tz
+        #tf_cloud = np.delete(tf_cloud, np.where(tf_cloud[:,1] > -0.15), axis=0) # Remove points closer than 0.2 meters of the robot
+        tf_cloud = np.delete(tf_cloud, np.where(tf_cloud[:,1] < -1.2), axis=0)
         tf_cloud = np.delete(tf_cloud, np.where(tf_cloud[:,0] > 1.2), axis=0)
         tf_cloud = np.delete(tf_cloud, np.where(tf_cloud[:,0] < -1.2), axis=0)
 
         return tf_cloud
 
-    def heightmap_distribution(self, delta=0.1, front_heavy=0.0, limit=1.2):
+    def heightmap_distribution(self, x_limit, y_limit, square=False, y_start=0.296, delta=0, front_heavy=0):
 
         point_distribution = []
 
         # If delta variable not set, exit.
-        if delta == 0.0:
+        if delta == 0:
             print("Need delta value!")
             exit()
 
-        y = 0.296
-        while y < limit:
+        xd = 0
+        yd = 0
+
+        y = y_start
+        while y < y_limit:
             
-            x = 0.0
+            x = 0
 
             delta += front_heavy
 
-            while x < self.limit_x(y):
+            flag = True
+            if square==False:
+                limit = limit_at_x(y)
+                if x_limit < limit_at_x(y):
+                    limit = x_limit
+            else:
+                limit = x_limit
+
+
+            while x < limit:
                 
-                if x == 0.0:
-                    point_distribution.append([-x, -y])
+                if x < -limit:
+                    x += delta
+                    xd += 1
+                    flag = False
+
+                if flag:
+                    x -= delta
+                    xd -= 1
                 else:
-                    point_distribution.append([-x, -y])
                     point_distribution.append([x, -y])
-                
-                x += delta
+                    x += delta
+                    xd += 1
 
             y += delta
+            yd +=1
 
         point_distribution = np.round(point_distribution, 4)
-    
+
+
 
         return point_distribution
 
     def limit_x(self, x):
-        return x*(0.24555/0.296)+0.13338
+        return x*(4.3315)-0.129945
 
-    def key_points(heightData):
-        # type: (Tensor) -> (Tensor)
+
+    def key_points(self, heightData):
         device = torch.device('cuda:0')
-        # N = 50 # Number of key points
-        # probability = np.zeros(len(heightData))
-        
-        # Create a matrix for the sampled data
-        sampled_heightData = torch.empty((len(self.heightmap_distribution),3), device = device)
-        # Create a empty vector for summing the values
-        summer = torch.zeros(len(heightData[:,0]), device=device)
-        # Convert numpy to torch tensor
-        #data = torch.tensor(heightData)
         data = heightData.to(device)
-        # Get the 10% heighest points
-        p = 0.1
-        height_threshhold = 0.001 # cm
-        height_sum_threshhold = 0.5 # 
-        #start = time.time()
+        data = data[0::2]
+        heightmap = self.heightmap_distribution
+        # Height data
+        dataZ = data[:, 2]
+        
+        sampled_heightData = torch.zeros(heightmap.shape[0], device=device)
 
-        # for i in range(0,20):
-        #     for j in range(0,20):
-        #         summer = torch.where((i/100 >= data[:,0]) & (data[:,0] > i/100-0.1) & (j/100 <= data[:,1]) & (data[:,1] < j/100+0.1), data[:,2], 0.0)
+         # Expand data to heightmaps size
+        data = data.view(data.shape[0],data.shape[1],-1).expand([data.shape[0],data.shape[1], heightmap.shape[0]])
+        offset = 0.05
+        k = 108
+        ones = torch.ones_like(data[:,2, 0:k], dtype=torch.uint8, device=device)
+        zeros = torch.zeros_like(data[:,2, 0:k], dtype=torch.uint8, device=device)
 
-        #print(data.shape)
-        #print(data[0:30])
-        #summer1 = torch.where((heightmap_distribution[:,0]+0.05 >= data[:,0]) & (data[:,0] > heightmap_distribution[:,0]-0.05) & (heightmap_distribution[:,1]-0.05 <= data[:,1]) & (data[:,1] < heightmap_distribution[:,1]+0.05), data[:,2], 0.0)
-        for i, point in enumerate(self.heightmap_distribution):
-            x = point[0]
-            y = point[1]
-            sampled_heightData[i,0] = x
-            sampled_heightData[i,1] = y
-            
-            summer = torch.where((x+0.05 >= data[:,0]) & (data[:,0] > x-0.05) & (y-0.05 <= data[:,1]) & (data[:,1] < y+0.05), data[:,2], 0.0)
-            if(torch.logical_not(torch.sum(summer) == 0.0)):
-                # Remove points below threshhold
-                B = summer[summer != 0.0]
-                #rint(B)
-                # Get number of points above threshhold
-                n  = B.shape[0]
-                B, indices = B.sort(descending=True)
-                B = B[0:int(n*p+1)]
-                sampled_heightData[i,2] = B.sum().item()/int(n*p+1)
-            else:
-                sampled_heightData[i,2] = 0
-        # for i in range(0, 20):
-        #     y = i/10    # Convert to meter (0-2m)
-        #     y = -y      # Invert 
-        #     for j in range(0, 20):
-        #         x = j/10    # Convert to meter (0-2m)
-        #         x = x - 1   # Offset -1m so that the range is (-1 to 1 meter)
-        #         summer = torch.where((x >= data[:,0]) & (data[:,0] > x-0.1) & (y <= data[:,1]) & (data[:,1] < y+0.1), data[:,2], 0.0)
-        #         if(torch.logical_not(torch.sum(summer) == 0.0)):
-        #             # Remove points below threshhold
-        #             #print(summer.shape)
-        #             B = summer[summer != 0.0]
-        #             #rint(B)
-        #             # Get number of points above threshhold
-        #             n  = B.shape[0]
-        #             sampled_heightData[j,i] = B.sum().item()/int(n*p)
-        #         else:
-        #             sampled_heightData[j,i] = 0
-        # for i in range(0, -200, -10):
-        #     for j in range(-100, 100, 10):
-        #         summer = torch.where((i/100 >= data[:,0]) & (data[:,0] > i/100-0.1) & (j/100 <= data[:,1]) & (data[:,1] < j/100+0.1), data[:,2], 0.0)
-        #         if(torch.sum(summer) > height_sum_threshhold):
-        #             # Remove points below threshhold
-        #             B = summer[summer > height_threshhold]
-        #             # Get number of points above threshhold
-        #             n  = B.shape[0]
-        #             sampled_heightData[int((abs(i))/10),int((j+100)/10)] = summer[0:int(n*p)].sum().item()/int(n*p)
-        #             # print("hej" + str(sampled_heightData))
-        #             # print(sampled_heightData.shape)
-        #         else:
-        #             sampled_heightData[int((abs(i))/10),int((j+100)/10)] = 0
+        for i in range((int)(heightmap.shape[0]/k)):
+            belong = torch.zeros((data.shape[0], k), device=device)
 
-        #print(sampled_heightData)
+            AboveX = torch.zeros((data.shape[0], k), device='cuda:0')
+            UnderX = torch.zeros((data.shape[0], k), device='cuda:0')
+            AboveY = torch.zeros((data.shape[0], k), device='cuda:0')
+            UnderY = torch.zeros((data.shape[0], k), device='cuda:0')
+
+            AboveX[:] = torch.where(data[:,0, i*k:i*k+k] > heightmap[i*k:i*k+k,0]-offset, ones, zeros )
+            UnderX[:] = torch.where(data[:,0, i*k:i*k+k] < heightmap[i*k:i*k+k,0]+offset, ones, zeros )
+            AboveY[:] = torch.where(data[:,1, i*k:i*k+k] > heightmap[i*k:i*k+k,1]-offset, ones, zeros )
+            UnderY[:] = torch.where(data[:,1, i*k:i*k+k] < heightmap[i*k:i*k+k,1]+offset, ones, zeros )
+            X_cond = torch.bitwise_and(AboveX==1, UnderX==1)
+            Y_cond = torch.bitwise_and(AboveY==1, UnderY==1)
+            belong = torch.where(torch.bitwise_and(X_cond, Y_cond), ones, zeros)
+
+            dataZexpanded = dataZ.view(data.shape[0],-1).expand([data.shape[0], k])
+
+            # Filter out points outside heightmap
+            dataFiltered = dataZexpanded * belong
+            #dataFiltered = torch.where(dataFiltered == 0, torch.zeros_like(dataFiltered)-3, dataFiltered)
+            # Sort data
+            #dataSorted, indx1 = torch.sort(dataFiltered,0, descending=True)
+            #belongsSorted, indx2 = torch.sort(belong,0, descending=True)
+
+            # Find Average of top 15 measurements
+            #sum = torch.sum(dataSorted[0:15,:], 0)
+            #Index = torch.sum(belongsSorted[0:15,:], 0)
+            sampled_heightData[i*k:i*k+k] = torch.amax(dataFiltered, 0)
+
+        sampled_heightData = torch.nan_to_num(sampled_heightData)
+        #sampled_heightData = torch.where(sampled_heightData == -3, torch.zeros_like(sampled_heightData), sampled_heightData)
+        sampled_heightData = torch.stack((heightmap[:,0], heightmap[:,1], sampled_heightData[:])).T
+
         return sampled_heightData
-
-    

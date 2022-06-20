@@ -18,7 +18,7 @@ class Kinematics_node(Node):
             Actions,
             'Actions',
             self.callback,
-            10)
+            1)
 
         self.ActionSub  # prevent unused variable warning
 
