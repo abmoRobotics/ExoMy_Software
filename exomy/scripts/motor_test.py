@@ -42,14 +42,14 @@ while(selection != '0'):
     print("1. Min to Max oscilation")
     print('2. Incremental positioning')
     print('0. Abort')
-    selection = raw_input()
+    selection = input()
 
     if (int(selection) == 1):
 
-        min_t = 0.5 # ms
-        max_t = 2.5 # ms
-        mid_t = min_t+max_t/2
-
+        min_t = 1.3 # ms
+        max_t = 1.7 # ms
+        mid_t = (min_t+max_t)/2
+        print((min_t+max_t)/2)
         print("pulsewidth_min = {:.2f}, pulsewidth_max = {:.2f}".format(min_t, max_t))
 
         # *_dc is the percentage of a cycle the signal is on
@@ -75,7 +75,7 @@ while(selection != '0'):
         dc_selection = ''
         
         while (dc_selection != '0'):
-            dc_selection = raw_input('a-d: change pulsewidth | w-s: change step size | 0: back to menu\n')
+            dc_selection = input('a-d: change pulsewidth | w-s: change step size | 0: back to menu\n')
             if dc_selection == 'a':
                 curr_t = curr_t - step_size
             elif dc_selection == 'd':

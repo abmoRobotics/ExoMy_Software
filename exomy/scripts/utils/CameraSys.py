@@ -6,20 +6,18 @@ import math
 from scipy.spatial.transform import Rotation as R
 import time
 import torch
-from sensor_msgs.msg import PointCloud2, PointField
 import csv
-from CamProc import key_pointsF
 class Cameras:
     def __init__(self):
         # Declare RealSense pipeline, encapsulating the actual device and sensors
-        self.pipe = rs.pipeline()
-        self.doLogging = True
+        self.pipe = rs.pipeline() #Make a pipeline for the T265
+        self.doLogging = False #Flag whether to log positions and motor values or not
         if self.doLogging:
             f = open('/home/xavier/ExoMy_Software/exomy/scripts/utils/csv/Position.csv', 'w')
             self.writer = csv.writer(f)
         # Build config object and request pose data
         cfg = rs.config()
-        cfg.enable_stream(rs.stream.pose)
+        cfg.enable_stream(rs.stream.pose) #Configure stream for pose data 
 
         # Start streaming with requested config
         self.pipe.start(cfg)
@@ -41,23 +39,17 @@ class Cameras:
         rot = data.rotation
         ang_vel = data.angular_velocity
         ang_acc = data.angular_acceleration
-        #RobotPos = [pos.x * -1, pos.z, pos.y]
+        #Transform points based on the rotation of the T265
         RobotPos = self.TransPoint(np.array([pos.x, pos.y, pos.z]))
-        #RobotVel = [vel.x * -1, vel.z, vel.y]
         RobotVel = self.TransPoint(np.array([vel.x, vel.y, vel.z]))
-        #RobotAcc = [acc.x * -1, acc.z, acc.y]
         RobotAcc = self.TransPoint(np.array([acc.x, acc.y, acc.z]))
+        r = R.from_quat([rot.x, rot.y, rot.z, rot.w])
+        Rot_vec = r.as_rotvec()
+        RobotRot = self.TransPoint(np.array([Rot_vec[0], Rot_vec[1], Rot_vec[2]]))
         if self.doLogging:
             self.writer.writerow(RobotPos)
 
-        
-        r = R.from_quat([rot.x, rot.y, rot.z, rot.w])
-        Rot_vec = r.as_rotvec()
-        #RobotRot = [(Rot_vec[0] * -1) - 0.194, Rot_vec[2], Rot_vec[1]]
-        RobotRot = self.TransPoint(np.array([Rot_vec[0], Rot_vec[1], Rot_vec[2]]))
-        
-
-
+        #Transform and combine pointcloud data 
         tf_cloud = self.TransCloud(pointcloud, 1)
         tf_cloud2 = self.TransCloud(pointcloud2, 2)
         tf_cloudSum = np.append(tf_cloud, tf_cloud2, axis=0)
@@ -89,17 +81,15 @@ class Cameras:
         return roll_x, pitch_y, yaw_z # in radians 
 
     def TransPoint(self, point):
-        x_rot = -11-90 #placed in 61 degrees than 29+90 =119, 61+90=151
-        y_rot = 180 #Guessed
-        z_rot = 0 #Guessed
+        x_rot = -11-90
+        y_rot = 180 
+        z_rot = 0 
 
         omega = math.radians(x_rot)
         theta = math.radians(y_rot)
         kappa = math.radians(z_rot)
 
-        tx = 0.0 # unsure of the unit
-        ty = 0.0 # 
-        tz = 0.0 # 
+       
 
         ###############################################################
         # Rotation and translation matrices
@@ -170,7 +160,7 @@ class Cameras:
         projection_mat = np.matmul(projection_mat, rotMat_z)
         tf_cloud = np.matmul(pointCloud,projection_mat)  
         tf_cloud = np.delete(tf_cloud, 3, 1)
-        #tf_cloud = cloud.dot(projection_mat)
+       
         tf_cloud[:,0] += self.tx
         tf_cloud[:,1] += self.ty
         tf_cloud[:,2] += self.tz
@@ -202,8 +192,8 @@ class Cameras:
 
             flag = True
             if square==False:
-                limit = limit_at_x(y)
-                if x_limit < limit_at_x(y):
+                limit = self.limit_x(y)
+                if x_limit < self.limit_x(y):
                     limit = x_limit
             else:
                 limit = x_limit

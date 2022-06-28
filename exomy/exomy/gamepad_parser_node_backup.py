@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+#This is the original gamepad_parser node from ESA, without changes made to it.
 import rclpy
 from rclpy.node import Node
 

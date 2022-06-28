@@ -37,7 +37,7 @@ class MotorNode(Node):
 
     def callback(self, cmds):
         
-        self.robot.setMotorsFromKinematics(cmds.steering_angles, cmds.motor_velocities)
+        self.robot.setMotorsFromKinematics(cmds.steering_angles, cmds.motor_velocities)# Send motor values to motor controller
 
         self.watchdog_timer.cancel()
         # If this timer runs longer than the duration specified,

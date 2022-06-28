@@ -4,7 +4,8 @@ from rclpy.timer import Timer
 from exomy_msgs.msg import MotorCommands, Actions
 import sys
 sys.path.append('/home/xavier/ExoMy_Software/exomy/scripts/utils')
-from kinematicsCPU import kinematicsCPU
+from kinematicsCPU import kinematicsCPU #Kinematics
+
 class Kinematics_node(Node):
     """Convert Motor Commands"""
 
@@ -32,7 +33,7 @@ class Kinematics_node(Node):
 
     def callback(self, cmds):
         Message = MotorCommands()
-        Message.steering_angles, Message.motor_velocities = kinematicsCPU(cmds.lin_vel, cmds.ang_vel)
+        Message.steering_angles, Message.motor_velocities = kinematicsCPU(cmds.lin_vel, cmds.ang_vel) #Use Ackermann kinematics to find motor values
 
         self.MotorPub.publish(Message)
 

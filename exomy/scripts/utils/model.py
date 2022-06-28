@@ -86,27 +86,6 @@ class DeterministicActor(DeterministicModel):
             x = layer(x)
         return x
 
-# class DeterministicCritic(DeterministicModel):
-#     def __init__(self, observation_space, action_space, device = "cuda:0", features=[512,256,128], activation_function="elu",clip_actions=False):
-#         super().__init__(observation_space, action_space, device, clip_actions)
-
-#         self.network = nn.ModuleList()
-        
-
-#         in_channels = observation_space.shape[0]
-#         for feature in features:
-#             self.network.append(Conv(in_channels, feature, activation_function))
-#             in_channels = feature
-
-#         self.network.append(nn.Linear(in_channels,1))
-
-
-#     def compute(self, states, taken_actions):
-#         x = states
-#         for layer in self.network:
-#             x = layer(x)
-#         return x
-
 class StochasticActorHeightmap(GaussianModel):
     def __init__(self, observation_space, action_space, num_exteroception=150, device = "cuda:0", network_features=[512,256,128], encoder_features=[80,60], activation_function="relu",clip_actions=False, clip_log_std = True, min_log_std= -20.0, max_log_std = 2.0):
         super().__init__(observation_space, action_space, device, clip_actions)
@@ -227,30 +206,3 @@ class DeterministicCritic(DeterministicModel):
         for layer in self.network:
             x = layer(x)
         return x
-# #REMOVE LATER
-# class DeterministicActor(DeterministicModel):
-#     def __init__(self, observation_space, action_space, device, clip_actions = False):
-#         super().__init__(observation_space, action_space, device, clip_actions)
-#         in_channels = observation_space.shape[0]
-#         self.linear_layer_1 = nn.Linear(in_channels, 32)
-#         self.linear_layer_2 = nn.Linear(32, 32)
-#         self.action_layer = nn.Linear(32, self.num_actions)
-
-#     def compute(self, states, taken_actions):
-#         x = nn.functional.elu(self.linear_layer_1(states))
-#         x = nn.functional.elu(self.linear_layer_2(x))
-#         return torch.tanh(self.action_layer(x))
-
-# #REMOVE LATER
-# class Critic(DeterministicModel):
-#     def __init__(self, observation_space, action_space, device, clip_actions = False):
-#         super().__init__(observation_space, action_space, device, clip_actions)
-#         in_channels = observation_space.shape[0]
-#         self.net = nn.Sequential(nn.Linear(in_channels + self.num_actions, 32),
-#                                  nn.ELU(),
-#                                  nn.Linear(32, 32),
-#                                  nn.ELU(),
-#                                  nn.Linear(32, 1))
-
-#     def compute(self, states, taken_actions):
-#         return self.net(torch.cat([states, taken_actions], dim=1))        
