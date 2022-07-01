@@ -13,6 +13,28 @@ Lastly, run the system in a third terminal:
 ```
 ros2 launch exomy exomy.launch.py
 ```
+# Dependencies
+This ROS system depends on certain ROS2 packages, we have not been able to install compiled versions on the ARM64 processer, therefore we have compiled the packages ourselves. 
+```
+ros2_numpy
+realsense-ros
+sensor_msgs
+rviz2 (for debugging)
+```
+These packages where cloned from their respected Github repositories and built using colcon. 
+
+Python dependencies:
+```
+scipy
+numpy
+math
+time
+torch
+csv
+adafruit_pca9685
+gym 
+skrl
+```
 # Making changes
 The ROS system has 4 main nodes:
 ```
@@ -32,6 +54,13 @@ When making changes to either the nodes or subscripts, the ROS system has to be 
 ```
 colcon build
 ```
+
+If you use our Xavier, we have used virtual python environments, so if you have problems compiling or other python problems you can try switching between then with:
+```
+pyenv local system
+pyenv local 3.8.0
+```
+These commands switch between the two environments on the system.
 
 # Other questions
 For other questions, contact Jacob at jknuds19@student.aau.dk
