@@ -62,5 +62,8 @@ pyenv local 3.8.0
 ```
 These commands switch between the two environments on the system.
 
+# Tips
+For controlling the robot wirelessly, we have used SSH to control and program the rover. The Eduroam AAU network does not allow communication directly between devices however. We have used a free VPN called tailscale. We strongly recommend using this, as you can share the device, such that all group members can access it. 
+
 # Other questions
 For other questions, contact Jacob at jknuds19@student.aau.dk
